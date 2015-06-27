@@ -26,7 +26,7 @@ export default Backbone.View.extend({
     this.collection.create({
       name: lotName,
       address: lotAddress,
-      availableSpaces: lotSpaces,
+      totalSpaces: lotSpaces,
       hours: lotHours,
       price: lotPrice
     });

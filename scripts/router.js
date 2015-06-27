@@ -27,40 +27,8 @@ var Router = Backbone.Router.extend({
   },
 
   business: function() {
-    var lots = new LotCollection(
-    [
-      {
-        id: 1,
-        company: 'Park Corp',
-        company_id: 1,
-        name: 'Hackathon',
-        address: '101 North Main',
-        availableSpaces: '12',
-        hours: '8:00am to 6:00pm',
-        price: '5.00'
-      },
-      {
-      id: 2,
-      company: 'Park Corp',
-      company_id: 1,
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-      },
-      {
-      id: 3,
-      company: 'Lot Corp',
-      company_id: 2,
-      name: 'Bay Lot',
-      address: '101 South Main',
-      availableSpaces: '24',
-      hours: '8:00am to 6:00pm',
-      price: '7.00'
-      }
-    ]
-    );
+    var lots = new LotCollection();
+    lots.fetch();
     var view = new BusinessView({collection: lots});
     $('#app').html(view.el);
   },
@@ -109,41 +77,15 @@ var Router = Backbone.Router.extend({
   },
 
   editForm: function(id) {
-    var lots = new LotCollection([
-    {
-      id: 1,
-      company: 'Park Corp',
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    },
-    {
-    id: 2,
-    company: 'Park Corp',
-    name: 'Hackathon',
-    address: '101 North Main',
-    availableSpaces: '12',
-    hours: '8:00am to 6:00pm',
-    price: '5.00'
-    },
-      {
-        id: 3,
-        company: 'Lot Corp',
-        name: 'Bay Lot',
-        address: '101 South Main',
-        availableSpaces: '24',
-        hours: '8:00am to 6:00pm',
-        price: '7.00'
-      }
-
-    ]);
-    var view = new EditView({
-      collection: lots,
-      model: id
+    var lots = new LotCollection();
+    lots.fetch().then(function(list) {
+      var view = new EditView({
+        collection: list,
+        model: id
+      });
+      $('#app').html(view.el);
     });
-    $('#app').html(view.el);
+
 
   },
   attendant: function(){
@@ -164,7 +106,8 @@ var Router = Backbone.Router.extend({
 
 
   parking: function() {
-  	this.lots = new LotCollection();
+    console.log('parking');
+  	// this.lots = new LotCollection();
    //    {'company': 'Best Parking EVAR!',
    //    'id': 1,
    //    'title': 'A parking lot',
@@ -181,10 +124,10 @@ var Router = Backbone.Router.extend({
    //    'spacesLeft': 15},
    //    ]
   	// );
-  	this.lots.fetch().then(function(response) {
-  		this.UserView = new UserView({collection: this.lots});
-  		$('#app').html(this.UserView.el);
-  	}.bind(this));
+  	// this.lots.fetch().then(function(response) {
+  	// 	this.UserView = new UserView({collection: this.lots});
+  	// 	$('#app').html(this.UserView.el);
+  	// }.bind(this));
 	// console.log('hi');
   }
 
