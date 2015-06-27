@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{id}/lots', 'LotController@index');
 Route::post('companies/{id}/lots', 'LotController@store');
+
+Route::get('lots', 'LotController@all');

@@ -21,6 +21,16 @@ class LotController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function all()
+    {
+        return Lot::all();
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
