@@ -1,4 +1,4 @@
-img#background{
+img#background{ /* define the background */
 	position:absolute;
 	width:100%;
 	z-index:-9;
@@ -6,7 +6,7 @@ img#background{
 	
 }
 
-body{
+body{ /* general site management */
 	margin: 0;
 	width: 100%;
 	background-position: top;
@@ -29,7 +29,7 @@ ul.menulink{ /* This is where a majority of the info goes, this is the "list" of
 	margin:0;
 	padding:4px;
 	height:30px;
-	width: 363px;
+	width: 480px;
 	border-radius:8px;
 }
 
@@ -46,7 +46,7 @@ li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
 	color: white;
 }
 
-div.body{
+div.body{ /* position the body div and how it will hold all the content */
 	width:700px;
 	margin:auto;
 	margin-top:50px;
@@ -55,12 +55,23 @@ div.body{
 	border-radius:8px;
 }
 
+/* general style elements for text */
+
 h {
 	font-family:sans-serif;
 	font-size: 30pt;
 	color:whitesmoke;
+	padding-left:30px;
+
 }
 
 p {
 	color:whitesmoke;
+}
+
+a{
+	text-decoration:none;
+	color: rgb(76, 175, 80);
+	font-weight: bold;
+	font-family: sans-serif;
 }
