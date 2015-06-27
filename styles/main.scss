@@ -5,6 +5,7 @@
 $base-font-family: $helvetica;
 
 // Colors
+$green: rgb(76,175,80);
 $blue: #477dca;
 $dark-gray: #333;
 $medium-gray: #999;
@@ -13,6 +14,8 @@ $very-light-gray: #fafafa;
 
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
+
+@import 'user';
 
 body {
   font-family: $base-font-family;

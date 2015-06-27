@@ -1,0 +1,88 @@
+* {
+	margin: 0;
+	outline: none;
+	padding: 0;
+}
+
+.user-container {
+	@include outer-container(414px);
+	margin: auto;
+	max-height: 736px;
+}
+
+#map-canvas {
+	@include span-columns(12);
+	width: 100%;
+	height: 500px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.lot-specifics {
+	@include span-columns(12 of 12);
+	background-color: rgba(250,250,250,.7);
+	display: none;
+	position: absolute;
+	text-align: center;
+	max-width: 414px;
+	height: 100%;
+}
+
+.fa-close {
+	border: 2px solid $green;
+	border-radius: 5px;
+	float: right;
+	font-size: 1.5em;
+	margin-right: 5%;
+	margin-top: 5%;
+	padding: .2em;
+	transition: all .3s linear;
+}
+
+.fa-close:hover {
+	background-color: $green;
+	color: rgb(250,250,250);
+	cursor: pointer;
+}
+
+.fa-close:active {
+	background-color: $green;
+	color: rgb(250,250,250);
+}
+
+.lot-title {
+	border-bottom: 2px solid rgba(0,0,0,.6);
+	font-size: 1.8em;
+	margin: auto;
+	margin-top: 3em;
+	width: 90%;
+}
+
+.lot-address {
+	font-size: 1.1em;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+.lot-price {
+	background-color: white;
+	border: 2px solid $green;
+	border-radius: 5px;
+	font-size: 3em;
+	margin: auto;
+	margin-top: 1em;
+	text-align: center;
+	width: 30%;
+}
+
+.lot-reservation-form-submit {
+	border: 3px solid $green;
+	border-radius: 5px;
+	background-color: rgba(76,175,80,.7);
+	box-shadow: inset 0 5px 3px rgba(250,250,250,.7);
+	color: white;
+	font-size: 3em;
+	margin: auto;
+	margin-top: 2em;
+	width: 80%;
+}
