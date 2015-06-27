@@ -3,3 +3,8 @@ bower_components
 node_modules
 .sass-cache
 dist/
+
+/vendor
+/node_modules
+Homestead.yaml
+.env
