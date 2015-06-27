@@ -4,9 +4,13 @@
 import ReservationSingleView from './ReservationSingleView';
 export default Backbone.View.extend({
     template: JST.attendantReservations,
+    events: {
+        'click .attendant-list-item': 'checkReservation'
+    },
+
     initialize: function(){
-        console.log(this.collection);
         this.render();
+       console.log(this.collection.length);
     },
     render:function(){
         this.$el.html(this.template());
@@ -16,7 +20,6 @@ export default Backbone.View.extend({
         _.invoke(this.children || [], 'remove');
 
         this.children = this.collection.map(function(child) {
-            //console.log('child ',child);
             var view = new ReservationSingleView({
                 model: child
             });
@@ -31,5 +34,8 @@ export default Backbone.View.extend({
     remove: function(){
         _.invoke(this.children || [], 'remove');
         Backbone.View.prototype.remove.apply(this, arguments);
+    },
+    checkReservation: function(){
+        console.log(this);
     }
 })

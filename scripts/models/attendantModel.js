@@ -1,10 +1,13 @@
 /**
  * Created by firewaterjoe on 6/26/15.
  */
-var Attendant = Backbone.Model.extend({
+var Reservation = Backbone.Model.extend({
 
 });
 
-var ReservationCollection = Backbone.Collection([
-
-]);
+var ReservationCollection = Backbone.Collection.extend({
+    model: Reservation,
+    url:'http://greenville-parking.com/reservations'
+}
+);
+export default {ReservationCollection,Reservation};

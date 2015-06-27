@@ -5,11 +5,20 @@ export default Backbone.View.extend({
     template: JST.attendantReservationSingle,
     tagName: 'li',
     className: 'attendant-list-item',
+    events: {
+        'click .attendant-list-item': 'checkReservation'
+    },
+
     initialize:function(){
-        console.log(this.model.toJSON());
+
         this.render();
     },
     render:function(){
+        console.log('what',this.model);
         this.$el.html(this.template(this.model.toJSON()));
+    },
+    checkReservation: function(){
+        console.log('hi');
     }
+
 });
