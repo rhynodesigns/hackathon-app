@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('contact', function () {
     return view('pages.contact');
 });
-Route::get('lots', function() {
-	return view('app.index');
-});
+
+
+Route::resource('companies', 'CompanyController');
+Route::get('companies/{id}/lots', 'LotController@index');
