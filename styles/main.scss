@@ -23,7 +23,6 @@ body {
   color: $base-font-color;
 }
 
-
 input {
   outline: none;
 }
@@ -47,6 +46,7 @@ img#logo{
 	z-index:-9;
 	/* margin:auto; */
 }
+
 header{
 	max-width:414px;
 	margin: auto;
@@ -118,6 +118,10 @@ li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
 }
 
 .business-price-text{
+  color: white;
+}
+
+.company-name-text {
   color: white;
 }
 
@@ -271,7 +275,7 @@ td {
 th {
   padding: 3px;
 }
-=======
+
 .attendant-spots-left{
   font-size: 5em;
   position: absolute;
@@ -280,6 +284,7 @@ th {
   outline:none;
 
 }
+
 .attendant-spots-left:before {
   content: 'Available';
   font-size: .2em;
@@ -287,13 +292,15 @@ th {
   top: -10px;
   left: 10px;
 }
+
 .attendant-reservations {
   font-size: 5em;
   position: absolute;
   top: 220px;
   left: 45px;
-  
+
 }
+
 .attendant-reservations:before{
   content: 'Reserved';
   color: black;
@@ -302,10 +309,12 @@ th {
   top: -10px;
   left: 10px;
 }
+
 .attendant-reservations a {
   color: maroon;
   text-decoration: none;;
 }
+
 .attendant-container {
   width: 414px;
   height: 450px;
@@ -314,6 +323,7 @@ th {
   position: relative;
 
 }
+
 .attendant-car-in,
 .attendant-car-out{
   height: 100px;
@@ -323,13 +333,13 @@ th {
   border-radius: 50%;
   display: block;
   outline: none;
-
-
 }
+
 .attendant-buttons{
   position: absolute;
   right: 55px;
 }
+
 .attendant-log-on {
   width: 110px;
   height: 45px;
@@ -347,9 +357,11 @@ th {
   right: 50px;
 
 }
+
 ul.attendant-reservation-list{
  padding: 0 10px;
 }
+
 .attendant-reservation-list li{
   margin-bottom: 5px;
   list-style-type: none;
@@ -357,16 +369,15 @@ ul.attendant-reservation-list{
   border: 1px solid $dark-gray;
   position: relative;
 }
+
 .attendant-list-reservation{
   position: absolute;
   right: 20px;
   top: 10px;
 }
+
 .attendant-list-name{
   position: absolute;
   left: 20px;
   top: 10px;
 }
-
-
-

@@ -9,8 +9,13 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
-    var modelId = Number(this.model) - 1;
-    this.model = this.collection.models[modelId];
+    console.log(this.collection);
+    var modelId = this.model;
+    console.log(modelId);
+    this.model = this.collection.findWhere({id: modelId});
+    console.log(this.model);
+    // var modelId = Number(this.model) - 1;
+    // this.model = this.collection.models[modelId];
     this.render();
   },
 

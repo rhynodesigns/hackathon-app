@@ -19,12 +19,14 @@ export default Backbone.View.extend({
   saveModel: function(e) {
     e.preventDefault();
     var lotName = this.$('.business-name-create').val();
+    var lotCompany = this.$('.company-name-create').val();
     var lotAddress = this.$('.business-address-create').val();
     var lotSpaces = this.$('.business-available-spaces-create').val();
     var lotHours = this.$('.business-hours-create').val();
     var lotPrice = this.$('.business-price-create').val();
     this.collection.create({
       name: lotName,
+      company: lotCompany,
       address: lotAddress,
       availableSpaces: lotSpaces,
       hours: lotHours,
