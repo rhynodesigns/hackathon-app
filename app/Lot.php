@@ -9,8 +9,11 @@ class Lot extends Model
     protected $fillable = [
         "name",
         "address",
+        "totalSpaces",
         "availableSpaces",
         "hours",
-        "price"
+        "price",
+        "latitude",
+        "longitude"
     ];
 }
