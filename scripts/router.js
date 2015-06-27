@@ -10,9 +10,13 @@ var Router = Backbone.Router.extend({
   },
 
   parking: function() {
-  	this.lots = new Backbone.Collection({
-  		'address': '101 North Main Street Greenville, SC'
-  	});
+  	this.lots = new Backbone.Collection([
+      {'address': '101 North Main Street Greenville, SC',
+      'price': 5},
+      {'address': '131 North Main Street Greenville, SC',
+      'price': 4},
+      ]
+  	);
   	// this.lots.fetch().then(function(response) {
   		this.UserView = new UserView({collection: this.lots});
   		$('#app').html(this.UserView.el);

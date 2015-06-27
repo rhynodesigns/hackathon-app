@@ -1,12 +1,12 @@
-{{log this}}
-
-<div class="lot-map">
+<div id="map-canvas" >
 	 
 </div>
 <div id="map-canvas"></div>
 <div class="lot-price">
-	<h3 class="lot-price-text">$ 5</h3>
+	<h3 class="lot-price-text">$ {{this.[0].price}}</h3>
 </div>
 <div class="lot-reservation">
 	<button class="lot-reservation-action">Reserve</button>
 </div>
+
+{{log this.[0]}}
