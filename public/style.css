@@ -1,16 +1,18 @@
-img#background{ /* define the background */
-	position:absolute;
-	width:100%;
+img#logo{
+	position:relative;
+	width:414px;
 	z-index:-9;
-	top:0;
-	
+	/* margin:auto; */	
 }
-
-body{ /* general site management */
+header{
+	width:414;
+	margin:auto;
+	padding-top: 20;
+}
+body{
 	margin: 0;
 	width: 100%;
-	background-position: top;
-    background-attachment: fixed;
+	background-color: lightgreen;
 	padding: 0;
 }
 
@@ -18,7 +20,7 @@ div.menubar{ /* This is the holding box for the menu bar */
 	width:600px;
 	position:relative;
 	margin:auto;
-	margin-top:60px;
+	margin-top: 20px;
 }
 
 ul.menulink{ /* This is where a majority of the info goes, this is the "list" of links */
@@ -26,36 +28,33 @@ ul.menulink{ /* This is where a majority of the info goes, this is the "list" of
 	text-align:center;
 	background: #4CAF50;
 	list-style-type:none;
-	margin:0;
-	padding:4px;
+	padding-top: 14px;
+	padding-left: 0;
 	height:30px;
-	width: 480px;
+	width: 414px;
 	border-radius:8px;
 }
 
 li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
 	display:inline;
-	float:left;
 	text-decoration:none;
 	font-family:helvetica;
 	text-transform:uppercase;
 	font-weight:bold;
-	padding-left:10px;
-	padding-right:10px;
+	padding-left: 4px;
+	padding-right: 4px;
 	padding-top:3px;
 	color: white;
 }
 
-div.body{ /* position the body div and how it will hold all the content */
-	width:700px;
+div.body{
+	width: 414px;
 	margin:auto;
 	margin-top:50px;
 	padding: 18px;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.64);
 	border-radius:8px;
 }
-
-/* general style elements for text */
 
 h {
 	font-family:sans-serif;
@@ -69,7 +68,7 @@ p {
 	color:whitesmoke;
 }
 
-a {
+a{
 	text-decoration:none;
 	color: rgb(76, 175, 80);
 	font-weight: bold;

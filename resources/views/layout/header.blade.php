@@ -1,4 +1,5 @@
 <header class="menubar">
+<img id="logo" src="img/greenvilleparking.gif"></img>
 <div class="menubar">
   <ul class="menulink">
 	  <li class="menulink"><a class="menulink" href="/">Home</a></li>

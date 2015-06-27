@@ -3,7 +3,6 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<img id="background" src="img/greenville.jpg"></img>
 @include('layout.header')
   <div class="contents"> @yield('content') </div>
 </body>
