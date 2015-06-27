@@ -5,10 +5,14 @@ var Router = Backbone.Router.extend({
     '': 'index',
     'parking':'parking',
     'attendant': 'attendant',
-    'business': 'business'
+    'business': 'business',
+    'attendant/reservations': 'checkReservations'
   },
   attendant: function(){
     $('#app').html(new AttendantView().el);
+  },
+  checkReservations: function(){
+    $('#app').html('<h1>hello</h1>')
   }
 });
 

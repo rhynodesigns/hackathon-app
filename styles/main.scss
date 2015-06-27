@@ -26,6 +26,32 @@ body {
   left: 45px;
 
 }
+.attendant-spots-left:before {
+  content: 'Available';
+  font-size: .2em;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.attendant-reservations {
+  font-size: 5em;
+  position: absolute;
+  top: 220px;
+  left: 45px;
+  
+}
+.attendant-reservations:before{
+  content: 'Reserved';
+  color: black;
+  font-size: .2em;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.attendant-reservations a {
+  color: maroon;
+  text-decoration: none;;
+}
 .attendant-container {
   width: 420px;
   min-height: 450px;
@@ -62,4 +88,5 @@ body {
   left: 20px;
 
 }
+
 
