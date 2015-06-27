@@ -3,4 +3,8 @@
  */
 var Attendant = Backbone.Model.extend({
 
-})
+});
+
+var ReservationCollection = Backbone.Collection([
+
+]);

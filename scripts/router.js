@@ -1,5 +1,5 @@
-import AttendantView from './views/attendantView';
-
+import AttendantView from './views/AttendantView';
+import AttendantReservationView from './views/AttendantReservationView'
 var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
@@ -11,8 +11,14 @@ var Router = Backbone.Router.extend({
   attendant: function(){
     $('#app').html(new AttendantView().el);
   },
+
   checkReservations: function(){
-    $('#app').html('<h1>hello</h1>')
+    this.reservations = new Backbone.Collection();
+    this.reservations.add([
+      {id: 1},
+      {id: 2}
+    ]);
+    $('#app').html(new AttendantReservationView({collection:this.reservations}).el);
   }
 });
 

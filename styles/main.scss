@@ -19,11 +19,13 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+
 .attendant-spots-left{
   font-size: 5em;
   position: absolute;
   top: 60px;
   left: 45px;
+  outline:none;
 
 }
 .attendant-spots-left:before {
@@ -68,6 +70,7 @@ body {
   border: 2px solid black;
   border-radius: 50%;
   display: block;
+  outline: none;
 
 
 }
