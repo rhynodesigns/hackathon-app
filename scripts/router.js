@@ -1,10 +1,14 @@
+import AttendantView from './views/attendantView';
 
-
-var Router = Backbone.Model.extend({
+var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
+    'parking':'parking',
     'attendant': 'attendant',
     'business': 'business'
+  },
+  attendant: function(){
+    $('#app').html(new AttendantView().el);
   }
 });
 
