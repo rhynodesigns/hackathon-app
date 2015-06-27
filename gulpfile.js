@@ -20,6 +20,7 @@
         require('autoprefixer-core')({browsers: ['last 1 version']})
       ]))
       .pipe($.sourcemaps.write())
+      .pipe(gulp.dest('public/dist/styles'))
       .pipe(gulp.dest('dist/styles'))
       .pipe(reload({stream: true}));
   });
@@ -37,6 +38,7 @@
       }))
       .pipe($.concat('app.js'))
       .pipe($.sourcemaps.write('.'))
+      .pipe(gulp.dest('public/dist/scripts/'))
       .pipe(gulp.dest('dist/scripts/'))
       .pipe(reload({stream: true}));
   });
@@ -51,6 +53,7 @@
         noRedeclare: true, // Avoid duplicate declarations
       }))
       .pipe($.concat('templates.js'))
+      .pipe(gulp.dest('public/dist/scripts/'))
       .pipe(gulp.dest('dist/scripts/'))
       .pipe(reload({stream: true}));
   });

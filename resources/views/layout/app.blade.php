@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -18,8 +17,6 @@
     <div id="app"></div>
 
   <!-- Third Party Scripts -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxLmBk-m1DqRj2OhzXzsVr6ECwRZty0X4"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.12/gmaps.js"></script>
   <script src="bower_components/commonjs-require/commonjs-require.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>

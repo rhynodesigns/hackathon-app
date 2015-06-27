@@ -1,0 +1,24 @@
+* {
+	margin: 0;
+	outline: none;
+	padding: 0;
+}
+
+.user-container {
+	@include outer-container(414px);
+	margin: auto;
+	max-height: 736px;
+}
+
+#map-canvas {
+	@include span-columns(12);
+	width: 100%;
+	height: 500px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.lot-specifics {
+	position: fixed;
+	top: 0;
+}

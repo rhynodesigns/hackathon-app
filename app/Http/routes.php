@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('pages.index');
 });
+
+Route::get('lots', function() {
+	return view('app.index');
+});
