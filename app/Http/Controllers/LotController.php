@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Lot;
 
 class LotController extends Controller
 {
@@ -16,12 +17,7 @@ class LotController extends Controller
      */
     public function index($id)
     {
-        $lots = [
-            'id' => 1,
-            'name' => 'Lot 1',
-        ];
-
-        return collect($lots);
+        return Lot::all();
     }
 
     /**
@@ -41,7 +37,9 @@ class LotController extends Controller
      */
     public function store()
     {
-        dd(Input::all());
+        $lot = Lot::create(\Input::all());
+
+        return $lot;
     }
 
     /**
