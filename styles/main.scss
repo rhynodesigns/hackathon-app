@@ -16,6 +16,7 @@ $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 @import 'user';
+@import 'confirmation';
 
 body {
   font-family: $base-font-family;

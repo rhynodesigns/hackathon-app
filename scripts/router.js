@@ -2,10 +2,10 @@ import BusinessView from './views/business-view';
 import CreateView from './views/create-view';
 import EditView from './views/edit-view';
 import CompanyLotsView from './views/company-lot-view';
-
-import {LotCollection} from './models/business-model';
+import ConfirmationView from './views/confirmation';
+// import {LotCollection} from './models/business-model';
 import UserView from './views/user';
-// import {LotCollection} from './models/lots';
+import {LotCollection} from './models/lots';
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -15,7 +15,8 @@ var Router = Backbone.Router.extend({
     'business': 'business',
     'business/company/:company_id/lots': 'displayCompanyLots',
     'business/create': 'createForm',
-    'business/:id/edit': 'editForm'
+    'business/:id/edit': 'editForm',
+    'confirmation': 'confirmation'
   },
 
   index: function() {
@@ -143,28 +144,21 @@ var Router = Backbone.Router.extend({
 
   parking: function() {
   	this.lots = new LotCollection();
-   //    {'company': 'Best Parking EVAR!',
-   //    'id': 1,
-   //    'title': 'A parking lot',
-   //    'address': '101 North Main Street Greenville, SC',
-   //    'price': 5,
-   //    'totalSpaces': 50,
-   //    'spacesLeft': 45},
-   //    {'company': 'Parking Company, Inc.',
-   //    'id': 2,
-   //    'title': 'Another parking lot',
-   //    'address': '131 North Main Street Greenville, SC',
-   //    'price': 4,
-   //    'totalSpaces': 30,
-   //    'spacesLeft': 15},
-   //    ]
-  	// );
   	this.lots.fetch().then(function(response) {
   		this.UserView = new UserView({collection: this.lots});
   		$('#app').html(this.UserView.el);
   	}.bind(this));
-	// console.log('hi');
-  },  
+  },
+
+  confirmation: function() {
+    // this.reservations = new ReservationsCollection();
+    // this.reservations.fetch().then(function(response) {
+
+    //   this.reservations = new Backbone.Collection();
+    //   this.ConfirmationView = new ConfirmationView({collection: this.reservations});
+    //   $('#app').html(this.ConfirmationView.el);
+    // }.bind(this));
+  }
 
 });
 
