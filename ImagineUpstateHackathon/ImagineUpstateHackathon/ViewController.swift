@@ -13,12 +13,25 @@ import MapKit
 class ViewController: UIViewController {
 
   @IBOutlet weak var spotsAvailLabel: UILabel!
+  @IBOutlet weak var logoView: UIImageView!
+  
+
+  
+  @IBOutlet weak var bgImage: UIImageView!
+  
+  
   var numOpenSpots = 50
+  let myColor:UIColor = UIColor(red: 76/255.0, green: 175/255.0, blue: 80/255.0, alpha: 1.0)
+  //red:76.0, green:175.0,blue:80.0,alpha:1.0
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = myColor
     
+    
+    
+    bgImage.image = UIImage(named:"greenvilleparking.gif")!
   
     DataManager.getTopAppsDataFromFileWithSuccess { (data) -> Void in
       // Get the number 1 app using optional binding and NSJSONSerialization
@@ -28,8 +41,10 @@ class ViewController: UIViewController {
         options: NSJSONReadingOptions.AllowFragments,
         error:&parseError)
       
+      println ("this runs")
       //2
       if let topApps = parsedObject as? NSDictionary {
+        println("this runs2")
         if let id = topApps["id"] as? NSDictionary {
 //          if let apps = feed["entry"] as? NSArray {
 //            if let firstApp = apps[0] as? NSDictionary {
@@ -63,5 +78,6 @@ class ViewController: UIViewController {
     spotsAvailLabel!.text = "Spots Available: \(numOpenSpots)"
     
   }
+  
 }
 

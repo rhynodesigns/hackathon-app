@@ -1,11 +1,16 @@
+
 import BusinessView from './views/business-view';
 import CreateView from './views/create-view';
 import EditView from './views/edit-view';
 import CompanyLotsView from './views/company-lot-view';
 import ConfirmationView from './views/confirmation';
-// import {LotCollection} from './models/business-model';
+import AttendantView from './views/AttendantView';
+import  {ReservationCollection} from './models/attendantModel'
+import AttendantReservationView from './views/AttendantReservationView'
+import {LotCollection} from './models/business-model';
 import UserView from './views/user';
-import {LotCollection} from './models/lots';
+import {LotsCollection} from './models/lots';
+
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -17,6 +22,11 @@ var Router = Backbone.Router.extend({
     'business/create': 'createForm',
     'business/:id/edit': 'editForm',
     'confirmation': 'confirmation'
+    'attendant/reservations': 'checkReservations'
+  },
+  initialize: function(){
+    this.reservations = new ReservationCollection();
+    console.log(this.reservations);
   },
 
   index: function() {
@@ -125,22 +135,44 @@ var Router = Backbone.Router.extend({
     hours: '8:00am to 6:00pm',
     price: '5.00'
     },
-    {
-    id: 3,
-    company: 'Lot Corp',
-    name: 'Bay Lot',
-    address: '101 South Main',
-    availableSpaces: '24',
-    hours: '8:00am to 6:00pm',
-    price: '7.00'
-  }
-  ]);
+      {
+        id: 3,
+        company: 'Lot Corp',
+        name: 'Bay Lot',
+        address: '101 South Main',
+        availableSpaces: '24',
+        hours: '8:00am to 6:00pm',
+        price: '7.00'
+      }
+
+    ]);
     var view = new EditView({
       collection: lots,
       model: id
-      });
+    });
     $('#app').html(view.el);
+
   },
+  attendant: function(){
+    $('#app').html(new AttendantView().el);
+  },
+
+  checkReservations: function() {
+
+    //this.reservations.add([
+    //  {id: 1, name: 'Johnson'},
+    //  {id: 2, name: 'Hackett'}
+    //]);
+    //console.log(this.reservations);
+    this.reservations.fetch().then(function(){
+      console.log(this.reservations);
+      $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
+    }.bind(this));
+
+
+  },
+
+
 
   parking: function() {
   	this.lots = new LotCollection();
