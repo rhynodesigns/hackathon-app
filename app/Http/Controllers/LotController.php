@@ -41,7 +41,7 @@ class LotController extends Controller
      */
     public function store()
     {
-        dd(Input::all());
+        dd(\Input::all());
     }
 
     /**
