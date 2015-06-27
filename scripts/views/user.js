@@ -5,7 +5,7 @@ export default Backbone.View.extend({
 	className: 'user-view',
 
 	events: {
-		'submit': 'reserveSpace',
+		'click .lot-reservation-form-submit': 'setId',
 		'click .fa-close': 'hideForm'
 	},
 
@@ -67,6 +67,11 @@ export default Backbone.View.extend({
 		this.collection.fetch().then(function() {
 			this.initialize();
 		}.bind(this));
+	},
+
+	setId: function() {
+		var id = $('.lot-specifics').attr('id');
+		localStorage.setItem('id', id);
 	}
 
 });

@@ -3,6 +3,8 @@
  */
 var Reservation = Backbone.Model.extend({
 
+	urlRoot: 'http://greenville-parking.com/reservations'
+
 });
 
 var ReservationCollection = Backbone.Collection.extend({

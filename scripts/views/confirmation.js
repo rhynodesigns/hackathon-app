@@ -8,8 +8,11 @@ export default Backbone.View.extend({
 		'click ': 'reserveSpace',
 	},
 
-	initialize: function() {
+	initialize: function(options) {
 		this.render();
+		this.data = options.data;
+		console.log(this);
+		// this.listenTo(this.collection, 'add', this.confirm);
 	},
 
 	render: function() {
@@ -17,8 +20,8 @@ export default Backbone.View.extend({
 	},
 
 	reserveSpace: function() {
-		var id = $('.lot-specifics').attr('id');
-		_.filter(this.collection.models, function(item) {
+		var id = localStorage.getItem('id');
+		_.filter(this.data.models, function(item) {
 			if(item.attributes.id == id) {
 				var remaining = item.attributes.availableSpaces;
 				remaining--;
@@ -27,6 +30,12 @@ export default Backbone.View.extend({
 				console.log(item);
 			}
 		});
+		this.collection.create({}, {
+			error: function(model, response) {},
+			success: function(model, response) {
+				$('.blur').html(response.reservation_key);
+			}
+		})
 	}
 
 });

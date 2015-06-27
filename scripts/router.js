@@ -4,9 +4,9 @@ import CreateView from './views/create-view';
 import EditView from './views/edit-view';
 import CompanyLotsView from './views/company-lot-view';
 import ConfirmationView from './views/confirmation';
-import AttendantView from './views/AttendantView';
-import  {ReservationCollection} from './models/attendantModel'
-import AttendantReservationView from './views/AttendantReservationView'
+import AttendantView from './views/attendantView';
+import {ReservationCollection} from './models/attendantModel';
+import AttendantReservationView from './views/AttendantReservationView';
 import {LotCollection} from './models/business-model';
 import UserView from './views/user';
 import {LotsCollection} from './models/lots';
@@ -21,12 +21,14 @@ var Router = Backbone.Router.extend({
     'business/company/:company_id/lots': 'displayCompanyLots',
     'business/create': 'createForm',
     'business/:id/edit': 'editForm',
-    'confirmation': 'confirmation'
+    'confirmation': 'confirmation',
     'attendant/reservations': 'checkReservations'
   },
+
   initialize: function(){
     this.reservations = new ReservationCollection();
-    console.log(this.reservations);
+    this.lots = new LotsCollection();
+    this.lots.fetch();
   },
 
   index: function() {
@@ -153,6 +155,7 @@ var Router = Backbone.Router.extend({
     $('#app').html(view.el);
 
   },
+
   attendant: function(){
     $('#app').html(new AttendantView().el);
   },
@@ -165,17 +168,14 @@ var Router = Backbone.Router.extend({
     //]);
     //console.log(this.reservations);
     this.reservations.fetch().then(function(){
-      console.log(this.reservations);
       $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
     }.bind(this));
 
 
   },
 
-
-
   parking: function() {
-  	this.lots = new LotCollection();
+  	this.lots = new LotsCollection();
   	this.lots.fetch().then(function(response) {
   		this.UserView = new UserView({collection: this.lots});
   		$('#app').html(this.UserView.el);
@@ -183,10 +183,9 @@ var Router = Backbone.Router.extend({
   },
 
   confirmation: function() {
-    this.reservations = new ReservationsCollection();
+    console.log(this.lots);
     this.reservations.fetch().then(function(response) {
-      this.reservations = new Backbone.Collection();
-      this.ConfirmationView = new ConfirmationView({collection: this.reservations, });
+      this.ConfirmationView = new ConfirmationView({collection: this.reservations, data: this.lots});
       $('#app').html(this.ConfirmationView.el);
     }.bind(this));
   }
