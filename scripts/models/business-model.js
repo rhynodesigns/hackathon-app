@@ -1,11 +1,15 @@
 var Lot = Backbone.Model.extend({
+  idAttribute: '_id',
   defaults: function() {
     return {
       name: '',
+      company: '',
       address: '',
-      availableSpaces: '',
+      totalSpaces: '',
       hours: '',
       price: '',
+      lattitude: '34.8628',
+      longitude: '-82.3915',
       created_at: new Date()
     };
   }
