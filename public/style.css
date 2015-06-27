@@ -69,9 +69,16 @@ p {
 	color:whitesmoke;
 }
 
-a{
+a {
 	text-decoration:none;
 	color: rgb(76, 175, 80);
 	font-weight: bold;
 	font-family: sans-serif;
+}
+
+a.button {
+    border-color: red;
+    background-color: rgb(76, 175, 80);
+    padding: 8px;
+    border-radius: 8px;
 }
