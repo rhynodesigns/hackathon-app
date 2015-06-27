@@ -3,7 +3,7 @@ import {LotCollection} from './models/lots';
 
 var Router = Backbone.Router.extend({
   routes: {
-    '': 'parking',
+    '': 'index',
     'parking': 'parking',
     'attendant': 'attendant',
     'business': 'business'
