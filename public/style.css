@@ -1,0 +1,66 @@
+img#background{
+	position:absolute;
+	width:100%;
+	z-index:-9;
+	top:0;
+	
+}
+
+body{
+	margin: 0;
+	width: 100%;
+	background-position: top;
+    background-attachment: fixed;
+	padding: 0;
+}
+
+div.menubar{ /* This is the holding box for the menu bar */
+	width:600px;
+	position:relative;
+	margin:auto;
+	margin-top:60px;
+}
+
+ul.menulink{ /* This is where a majority of the info goes, this is the "list" of links */
+	position:relative;
+	text-align:center;
+	background: #4CAF50;
+	list-style-type:none;
+	margin:0;
+	padding:4px;
+	height:30px;
+	width: 363px;
+	border-radius:8px;
+}
+
+li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
+	display:inline;
+	float:left;
+	text-decoration:none;
+	font-family:helvetica;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:3px;
+	color: white;
+}
+
+div.body{
+	width:700px;
+	margin:auto;
+	margin-top:50px;
+	padding: 18px;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius:8px;
+}
+
+h {
+	font-family:sans-serif;
+	font-size: 30pt;
+	color:whitesmoke;
+}
+
+p {
+	color:whitesmoke;
+}
