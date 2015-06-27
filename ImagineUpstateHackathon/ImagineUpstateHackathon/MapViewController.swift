@@ -43,6 +43,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    println("worked")
     
     
+    
+    
+    
+    
+    
+//    var localNotification: UILocalNotification = UILocalNotification()
+//    localNotification.alertAction = "Testing notifications on iOS8"
+//    localNotification.alertBody = "Woww it works!!"
+//    localNotification.fireDate = NSDate(timeIntervalSinceNow: 2)
+//    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
   }
   
   
@@ -109,5 +119,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //      location.mapItem().openInMapsWithLaunchOptions(launchOptions)
   }
   
+  @IBAction func makeReservationButtonPressed(sender: UIButton) {
+    let alertController = UIAlertController(title: "You've snagged a spot!", message:
+      "You have secured a spot at this parking garage.", preferredStyle: UIAlertControllerStyle.Alert)
+    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+    
+    sleep(1)
+    
+    self.presentViewController(alertController, animated: true, completion: nil)
+    
+    
+    
+  }
   
 }
