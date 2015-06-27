@@ -1,18 +1,10 @@
-<!doctype html>
-<html>
-<head>
-    <title>Greenville Parking</title>
-
-    <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"> 
+	<title>Parking</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <header> @include('layout.header') </header>
+<img id="background" src="img/greenville.jpg"></img>
+@include('layout.header')
   <div class="contents"> @yield('content') </div>
-  <footer> @include('layout.footer') </footer>
-</div>
 </body>
 </html>

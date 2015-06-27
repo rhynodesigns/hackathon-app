@@ -1,6 +1,6 @@
-<ul>
-  <li><a href="{{URL::to('/')}}">Home</a></li>
-  <li><a href="{{URL::to('/about')}}">About</a></li>
-  <li><a href="{{URL::to('/lots')}}">Lots</a></li>
-  <li><a href="{{URL::to('/login')}}">Login</a></li>
-</ul>
+<header class="menubar">
+  <ul class="menulink">
+	  <li class="menulink"><a class="menulink"href="#">Home</a></li>
+	  <li class="menulink"><a class="menulink" href="#">Attendance</a></li>
+	  <li class="menulink"><a class="menulink" href="#">Business</a></li>
+</ul></header>
