@@ -29,7 +29,7 @@
 }
 
 .fa-close {
-	border: 2px solid $blue;
+	border: 2px solid $green;
 	border-radius: 5px;
 	float: right;
 	font-size: 1.5em;
@@ -40,13 +40,13 @@
 }
 
 .fa-close:hover {
-	background-color: $blue;
+	background-color: $green;
 	color: rgb(250,250,250);
 	cursor: pointer;
 }
 
 .fa-close:active {
-	background-color: $blue;
+	background-color: $green;
 	color: rgb(250,250,250);
 }
 
@@ -66,7 +66,7 @@
 
 .lot-price {
 	background-color: white;
-	border: 2px solid $blue;
+	border: 2px solid $green;
 	border-radius: 5px;
 	font-size: 3em;
 	margin: auto;
@@ -76,9 +76,9 @@
 }
 
 .lot-reservation-form-submit {
-	border: 3px solid $blue;
+	border: 3px solid $green;
 	border-radius: 5px;
-	background-color: rgba(71,125,202,.7);
+	background-color: rgba(76,175,80,.7);
 	box-shadow: inset 0 5px 3px rgba(250,250,250,.7);
 	color: white;
 	font-size: 3em;
