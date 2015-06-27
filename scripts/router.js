@@ -4,6 +4,7 @@ import CreateView from './views/create-view';
 import EditView from './views/edit-view';
 import CompanyLotsView from './views/company-lot-view';
 import AttendantView from './views/AttendantView';
+import  {ReservationCollection} from './models/attendantModel'
 import AttendantReservationView from './views/AttendantReservationView'
 import {LotCollection} from './models/business-model';
 import UserView from './views/user';
@@ -20,6 +21,12 @@ var Router = Backbone.Router.extend({
     'business/create': 'createForm',
     'business/:id/edit': 'editForm',
     'attendant/reservations': 'checkReservations'
+  },
+  initialize: function(){
+    this.reservations = new ReservationCollection();
+    console.log(this.reservations);
+
+
   },
 
   index: function() {
@@ -151,13 +158,17 @@ var Router = Backbone.Router.extend({
   },
 
   checkReservations: function() {
-    this.reservations = new Backbone.Collection();
-    this.reservations.add([
-      {id: 1, name: 'Johnson'},
-      {id: 2, name: 'Hackett'}
-    ]);
-    console.log(this.reservations);
-    $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
+
+    //this.reservations.add([
+    //  {id: 1, name: 'Johnson'},
+    //  {id: 2, name: 'Hackett'}
+    //]);
+    //console.log(this.reservations);
+    this.reservations.fetch().then(function(){
+      console.log(this.reservations);
+      $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
+    }.bind(this));
+
 
   },
 
