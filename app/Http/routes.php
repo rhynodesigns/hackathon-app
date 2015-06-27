@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('pages.index');
 });
-
+Route::get('contact', function () {
+    return view('pages.contact');
+});
 Route::get('lots', function() {
 	return view('app.index');
 });
