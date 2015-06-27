@@ -164,7 +164,8 @@ var Router = Backbone.Router.extend({
 
 
   parking: function() {
-  	this.lots = new LotCollection();
+    console.log('parking');
+  	// this.lots = new LotCollection();
    //    {'company': 'Best Parking EVAR!',
    //    'id': 1,
    //    'title': 'A parking lot',
@@ -181,10 +182,10 @@ var Router = Backbone.Router.extend({
    //    'spacesLeft': 15},
    //    ]
   	// );
-  	this.lots.fetch().then(function(response) {
-  		this.UserView = new UserView({collection: this.lots});
-  		$('#app').html(this.UserView.el);
-  	}.bind(this));
+  	// this.lots.fetch().then(function(response) {
+  	// 	this.UserView = new UserView({collection: this.lots});
+  	// 	$('#app').html(this.UserView.el);
+  	// }.bind(this));
 	// console.log('hi');
   }
 
