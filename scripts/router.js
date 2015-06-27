@@ -21,10 +21,12 @@ var Router = Backbone.Router.extend({
     'business/create': 'createForm',
     'business/:id/edit': 'editForm',
     'attendant/reservations': 'checkReservations'
+
   },
   initialize: function(){
     this.reservations = new ReservationCollection();
-    console.log(this.reservations);
+
+
 
 
   },
@@ -154,18 +156,16 @@ var Router = Backbone.Router.extend({
 
   },
   attendant: function(){
-    $('#app').html(new AttendantView().el);
+    this.reservations.fetch().then(function(){
+
+    $('#app').html(new AttendantView({collection:this.reservations}).el);
+    }.bind(this));
   },
 
   checkReservations: function() {
 
-    //this.reservations.add([
-    //  {id: 1, name: 'Johnson'},
-    //  {id: 2, name: 'Hackett'}
-    //]);
-    //console.log(this.reservations);
     this.reservations.fetch().then(function(){
-      console.log(this.reservations);
+      //console.log(this.reservations);
       $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
     }.bind(this));
 
@@ -197,6 +197,9 @@ var Router = Backbone.Router.extend({
   		$('#app').html(this.UserView.el);
   	}.bind(this));
 	// console.log('hi');
+  },
+  completeReservation: function(){
+    console.log('hi');
   }
 
 });
