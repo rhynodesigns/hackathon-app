@@ -4,12 +4,12 @@
 export default Backbone.View.extend({
     template: JST.attendantReservationSingle,
     tagName: 'li',
+    className: 'attendant-list-item',
     initialize:function(){
+        console.log(this.model.toJSON());
         this.render();
     },
     render:function(){
-        console.log('final ');
-        //this.$el.html('<h1>dude</h1>')
-        this.$el.html(this.template(this.model));
+        this.$el.html(this.template(this.model.toJSON()));
     }
 });

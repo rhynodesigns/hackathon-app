@@ -15,9 +15,10 @@ var Router = Backbone.Router.extend({
   checkReservations: function(){
     this.reservations = new Backbone.Collection();
     this.reservations.add([
-      {id: 1},
-      {id: 2}
+      {id: 1, name: 'Johnson'},
+      {id: 2, name: 'Hackett'}
     ]);
+    console.log(this.reservations);
     $('#app').html(new AttendantReservationView({collection:this.reservations}).el);
   }
 });

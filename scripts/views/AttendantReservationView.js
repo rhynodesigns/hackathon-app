@@ -21,7 +21,7 @@ export default Backbone.View.extend({
                 model: child
             });
 
-            this.$('.reservation-list').append(view.el);
+            this.$('.attendant-reservation-list').append(view.el);
             return view;
         }.bind(this));
 

@@ -95,5 +95,25 @@ body {
   right: 50px;
 
 }
+ul.attendant-reservation-list{
+ padding: 0 10px;
+}
+.attendant-reservation-list li{
+  margin-bottom: 5px;
+  list-style-type: none;
+  height: 40px;
+  border: 1px solid $dark-gray;
+  position: relative;
+}
+.attendant-list-reservation{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.attendant-list-name{
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
 
 
