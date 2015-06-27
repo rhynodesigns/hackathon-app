@@ -59,20 +59,6 @@ export default Backbone.View.extend({
 		this.$el.html(this.template(this.collection.toJSON()));
 	},
 
-	// reserveSpace: function(e) {
-	// 	e.preventDefault();
-	// 	var id = $('.lot-specifics').attr('id');
-	// 	_.filter(this.collection.models, function(item) {
-	// 		if(item.attributes._id == id) {
-	// 			var remaining = item.attributes.spacesLeft;
-	// 			remaining--;
-	// 			item.set('spacesLeft', remaining);
-	// 			item.save();
-	// 			console.log(item);
-	// 		}
-	// 	});
-	// },
-
 	hideForm: function() {
 		$('.lot-specifics').fadeToggle();
 	},

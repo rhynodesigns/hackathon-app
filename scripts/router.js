@@ -151,13 +151,12 @@ var Router = Backbone.Router.extend({
   },
 
   confirmation: function() {
-    // this.reservations = new ReservationsCollection();
-    // this.reservations.fetch().then(function(response) {
-
-    //   this.reservations = new Backbone.Collection();
-    //   this.ConfirmationView = new ConfirmationView({collection: this.reservations});
-    //   $('#app').html(this.ConfirmationView.el);
-    // }.bind(this));
+    this.reservations = new ReservationsCollection();
+    this.reservations.fetch().then(function(response) {
+      this.reservations = new Backbone.Collection();
+      this.ConfirmationView = new ConfirmationView({collection: this.reservations, });
+      $('#app').html(this.ConfirmationView.el);
+    }.bind(this));
   }
 
 });
