@@ -1,8 +1,10 @@
+import CompanyLotsView from './company-lot-view';
+
 export default Backbone.View.extend({
   template: JST.business,
 
   events: {
-    'submit .business-form': 'saveModel'
+    'submit .business-search': 'searchCompany'
   },
 
   initialize: function() {
@@ -13,7 +15,11 @@ export default Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  saveModel: function() {
-    //create the model and save to server
+  searchCompany: function(e) {
+    e.preventDefault();
+    var companyName = this.$('.company-name-input').val();
+    var companyLots = this.collection.where({company: companyName});
+    var companyLotsView = new CompanyLotsView({collection: companyLots});
+    $('.company-results').html(companyLotsView.el);
   }
 });

@@ -1,0 +1,24 @@
+  <div class="company-results-header">
+    <span class="company-lot-id-header">Lot ID</span>
+    <span class="company-lot-name-header">Name</span>
+    <span class="company-lot-address-header">Address</span>
+    <span class="company-lot-spaces-header">Available Spaces</span>
+    <span class="company-lot-hours-header">Hours</span>
+    <span class="company-lot-price-header">Price</span>
+  </div>
+{{#each this}}
+  <div class="company-results-container">
+    <span class="company-lot-id">{{this.attributes.id}}</span>
+    <span class="company-lot-name">{{this.attributes.name}}</span>
+    <span class="company-lot-address">{{this.attributes.address}}</span>
+    <span class="company-lot-spaces">{{this.attributes.availableSpaces}}</span>
+    <span class="company-lot-hours">{{this.attributes.hours}}</span>
+    <span class="company-lot-price">{{this.attributes.price}}</span>
+    <span class="company-lot-edit-button">
+      <a href="#/business/{{this.attributes.id}}/edit">
+      <button class="edit-lot-information" value="Edit">
+      </button>
+      </a>
+    </span>
+  </div>
+{{/each}}
