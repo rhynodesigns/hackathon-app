@@ -19,6 +19,70 @@
 }
 
 .lot-specifics {
-	position: fixed;
-	top: 0;
+	@include span-columns(12 of 12);
+	background-color: rgba(250,250,250,.7);
+	display: none;
+	position: absolute;
+	text-align: center;
+	max-width: 414px;
+	height: 100%;
+}
+
+.fa-close {
+	border: 2px solid $blue;
+	border-radius: 5px;
+	float: right;
+	font-size: 1.5em;
+	margin-right: 5%;
+	margin-top: 5%;
+	padding: .2em;
+	transition: all .3s linear;
+}
+
+.fa-close:hover {
+	background-color: $blue;
+	color: rgb(250,250,250);
+	cursor: pointer;
+}
+
+.fa-close:active {
+	background-color: $blue;
+	color: rgb(250,250,250);
+}
+
+.lot-title {
+	border-bottom: 2px solid rgba(0,0,0,.6);
+	font-size: 1.8em;
+	margin: auto;
+	margin-top: 3em;
+	width: 90%;
+}
+
+.lot-address {
+	font-size: 1.1em;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+.lot-price {
+	background-color: white;
+	border: 2px solid $blue;
+	border-radius: 5px;
+	font-size: 3em;
+	margin: auto;
+	margin-top: 1em;
+	text-align: center;
+	width: 30%;
+}
+
+.lot-reservation-form-submit {
+	border: 3px solid $blue;
+	border-radius: 5px;
+	background-color: rgba(71,125,202,.7);
+	box-shadow: inset 0 5px 3px rgba(250,250,250,.7);
+	color: white;
+	font-size: 3em;
+	margin: auto;
+	margin-top: 2em;
+	width: 80%;
 }
