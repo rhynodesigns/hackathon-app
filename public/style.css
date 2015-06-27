@@ -51,7 +51,7 @@ div.body{ /* position the body div and how it will hold all the content */
 	margin:auto;
 	margin-top:50px;
 	padding: 18px;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.6);
 	border-radius:8px;
 }
 
