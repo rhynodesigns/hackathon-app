@@ -48,6 +48,8 @@ class LotController extends Controller
     public function store()
     {
         $lot = Lot::create(\Input::all());
+        $lot->availableSpaces = $lot->totalSpaces;
+        $lot->save();
 
         return $lot;
     }
