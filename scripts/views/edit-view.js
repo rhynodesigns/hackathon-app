@@ -11,9 +11,13 @@ export default Backbone.View.extend({
   initialize: function() {
     console.log(this.collection);
     var modelId = this.model;
-    console.log(modelId);
-    this.model = this.collection.findWhere({id: modelId});
-    console.log(this.model);
+    var collection = this.collection;
+    var list = _.filter(collection, function(object) {
+      if(object._id === modelId) {
+        return object;
+      }
+    });
+    this.model = list;
     // var modelId = Number(this.model) - 1;
     // this.model = this.collection.models[modelId];
     this.render();
@@ -30,7 +34,7 @@ export default Backbone.View.extend({
     var lotSpaces = this.$('.lot-spaces-edit').val();
     var lotHours = this.$('.lot-hours-edit').val();
     var lotPrice = this.$('.lot-price-edit').val();
-    this.model.set({
+    this.collection.create({
       name: lotName,
       address: lotAddress,
       availableSpaces: lotSpaces,
@@ -45,7 +49,7 @@ export default Backbone.View.extend({
     e.preventDefault();
     var answer = confirm("Are you sure you want to delete this lot? This is irreversible");
     if(answer) {
-      this.model.destroy();
+      this.collection.destroy(this.model);
       router.navigate('business', {trigger: true});
     }
   }

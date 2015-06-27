@@ -78,12 +78,14 @@ var Router = Backbone.Router.extend({
 
   editForm: function(id) {
     var lots = new LotCollection();
-    lots.fetch();
-    var view = new EditView({
-      collection: lots,
-      model: id
+    lots.fetch().then(function(list) {
+      var view = new EditView({
+        collection: list,
+        model: id
+      });
+      $('#app').html(view.el);
     });
-    $('#app').html(view.el);
+
 
   },
   attendant: function(){

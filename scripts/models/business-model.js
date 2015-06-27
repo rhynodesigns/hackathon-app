@@ -1,13 +1,16 @@
 var Lot = Backbone.Model.extend({
   idAttribute: '_id',
+  urlRoot: 'http://greenville-parking.com/companies/lots',
   defaults: function() {
     return {
       name: '',
       company: '',
       address: '',
-      availableSpaces: '',
+      totalSpaces: '',
       hours: '',
       price: '',
+      lattitude: '34.8628',
+      longitude: '-82.3915',
       created_at: new Date()
     };
   }
@@ -15,8 +18,7 @@ var Lot = Backbone.Model.extend({
 
 var LotCollection = Backbone.Collection.extend({
   model: Lot,
-  url: 'http://tiny-lasagna-server.herokuapp.com/collections/lots'
-  // url: 'http://greenville-parking.com/companies/1/lots'
+  url: 'http://greenville-parking.com/companies/1/lots'
 });
 
 export default {Lot, LotCollection};
