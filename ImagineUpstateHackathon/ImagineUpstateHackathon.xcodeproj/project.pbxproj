@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C112A8641B3EF3BA00FD4825 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A8631B3EF3BA00FD4825 /* Accelerate.framework */; };
+		C112A8661B3EF3C200FD4825 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A8651B3EF3C200FD4825 /* AudioToolbox.framework */; };
+		C112A8681B3EF3C700FD4825 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A8671B3EF3C700FD4825 /* AVFoundation.framework */; };
+		C112A86A1B3EF3D100FD4825 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A8691B3EF3D100FD4825 /* CoreLocation.framework */; };
+		C112A86F1B3EF3F100FD4825 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A86B1B3EF3F100FD4825 /* CoreMedia.framework */; };
+		C112A8701B3EF3F100FD4825 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A86C1B3EF3F100FD4825 /* MessageUI.framework */; };
+		C112A8711B3EF3F100FD4825 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A86D1B3EF3F100FD4825 /* MobileCoreServices.framework */; };
+		C112A8721B3EF3F100FD4825 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112A86E1B3EF3F100FD4825 /* SystemConfiguration.framework */; };
+		C112A8741B3EF95400FD4825 /* lots.json in Resources */ = {isa = PBXBuildFile; fileRef = C112A8731B3EF95400FD4825 /* lots.json */; };
+		C112A8781B3EFC4900FD4825 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112A8771B3EFC4900FD4825 /* DataManager.swift */; };
+		C112A87A1B3EFC5200FD4825 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112A8791B3EFC5200FD4825 /* AppModel.swift */; };
+		C116DB5C1B3EF12F009564DE /* PayPalMobile in Resources */ = {isa = PBXBuildFile; fileRef = C116DB5B1B3EF12F009564DE /* PayPalMobile */; };
+		C175F6F31B3E248500D4241E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F6F21B3E248500D4241E /* AppDelegate.swift */; };
+		C175F6F51B3E248500D4241E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F6F41B3E248500D4241E /* ViewController.swift */; };
+		C175F6F81B3E248500D4241E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C175F6F61B3E248500D4241E /* Main.storyboard */; };
+		C175F6FA1B3E248500D4241E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C175F6F91B3E248500D4241E /* Images.xcassets */; };
+		C175F6FD1B3E248500D4241E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C175F6FB1B3E248500D4241E /* LaunchScreen.xib */; };
+		C175F7091B3E248500D4241E /* ImagineUpstateHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F7081B3E248500D4241E /* ImagineUpstateHackathonTests.swift */; };
+		C175F7151B3E441700D4241E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F7141B3E441700D4241E /* MapViewController.swift */; };
+		C175F7171B3E4FAF00D4241E /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F7161B3E4FAF00D4241E /* ParkingLocation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C175F7031B3E248500D4241E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C175F6E51B3E248500D4241E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C175F6EC1B3E248500D4241E;
+			remoteInfo = ImagineUpstateHackathon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C112A8631B3EF3BA00FD4825 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C112A8651B3EF3C200FD4825 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C112A8671B3EF3C700FD4825 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C112A8691B3EF3D100FD4825 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C112A86B1B3EF3F100FD4825 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C112A86C1B3EF3F100FD4825 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C112A86D1B3EF3F100FD4825 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C112A86E1B3EF3F100FD4825 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C112A8731B3EF95400FD4825 /* lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lots.json; sourceTree = "<group>"; };
+		C112A8771B3EFC4900FD4825 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C112A8791B3EFC5200FD4825 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		C116DB5B1B3EF12F009564DE /* PayPalMobile */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PayPalMobile; sourceTree = "<group>"; };
+		C175F6ED1B3E248500D4241E /* ImagineUpstateHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagineUpstateHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C175F6F11B3E248500D4241E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C175F6F21B3E248500D4241E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C175F6F41B3E248500D4241E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C175F6F71B3E248500D4241E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C175F6F91B3E248500D4241E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C175F6FC1B3E248500D4241E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C175F7021B3E248500D4241E /* ImagineUpstateHackathonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagineUpstateHackathonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C175F7071B3E248500D4241E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C175F7081B3E248500D4241E /* ImagineUpstateHackathonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagineUpstateHackathonTests.swift; sourceTree = "<group>"; };
+		C175F7141B3E441700D4241E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C175F7161B3E4FAF00D4241E /* ParkingLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C175F6EA1B3E248500D4241E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C112A86F1B3EF3F100FD4825 /* CoreMedia.framework in Frameworks */,
+				C112A8701B3EF3F100FD4825 /* MessageUI.framework in Frameworks */,
+				C112A8711B3EF3F100FD4825 /* MobileCoreServices.framework in Frameworks */,
+				C112A8721B3EF3F100FD4825 /* SystemConfiguration.framework in Frameworks */,
+				C112A86A1B3EF3D100FD4825 /* CoreLocation.framework in Frameworks */,
+				C112A8681B3EF3C700FD4825 /* AVFoundation.framework in Frameworks */,
+				C112A8661B3EF3C200FD4825 /* AudioToolbox.framework in Frameworks */,
+				C112A8641B3EF3BA00FD4825 /* Accelerate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C175F6FF1B3E248500D4241E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C175F6E41B3E248500D4241E = {
+			isa = PBXGroup;
+			children = (
+				C112A86B1B3EF3F100FD4825 /* CoreMedia.framework */,
+				C112A86C1B3EF3F100FD4825 /* MessageUI.framework */,
+				C112A86D1B3EF3F100FD4825 /* MobileCoreServices.framework */,
+				C112A86E1B3EF3F100FD4825 /* SystemConfiguration.framework */,
+				C112A8691B3EF3D100FD4825 /* CoreLocation.framework */,
+				C112A8671B3EF3C700FD4825 /* AVFoundation.framework */,
+				C112A8651B3EF3C200FD4825 /* AudioToolbox.framework */,
+				C112A8631B3EF3BA00FD4825 /* Accelerate.framework */,
+				C175F6EF1B3E248500D4241E /* ImagineUpstateHackathon */,
+				C175F7051B3E248500D4241E /* ImagineUpstateHackathonTests */,
+				C175F6EE1B3E248500D4241E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C175F6EE1B3E248500D4241E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C175F6ED1B3E248500D4241E /* ImagineUpstateHackathon.app */,
+				C175F7021B3E248500D4241E /* ImagineUpstateHackathonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C175F6EF1B3E248500D4241E /* ImagineUpstateHackathon */ = {
+			isa = PBXGroup;
+			children = (
+				C175F7141B3E441700D4241E /* MapViewController.swift */,
+				C175F7161B3E4FAF00D4241E /* ParkingLocation.swift */,
+				C175F6F21B3E248500D4241E /* AppDelegate.swift */,
+				C175F6F41B3E248500D4241E /* ViewController.swift */,
+				C112A8771B3EFC4900FD4825 /* DataManager.swift */,
+				C112A8791B3EFC5200FD4825 /* AppModel.swift */,
+				C175F6F61B3E248500D4241E /* Main.storyboard */,
+				C175F6F91B3E248500D4241E /* Images.xcassets */,
+				C175F6FB1B3E248500D4241E /* LaunchScreen.xib */,
+				C175F6F01B3E248500D4241E /* Supporting Files */,
+			);
+			path = ImagineUpstateHackathon;
+			sourceTree = "<group>";
+		};
+		C175F6F01B3E248500D4241E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C112A8731B3EF95400FD4825 /* lots.json */,
+				C116DB5B1B3EF12F009564DE /* PayPalMobile */,
+				C175F6F11B3E248500D4241E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C175F7051B3E248500D4241E /* ImagineUpstateHackathonTests */ = {
+			isa = PBXGroup;
+			children = (
+				C175F7081B3E248500D4241E /* ImagineUpstateHackathonTests.swift */,
+				C175F7061B3E248500D4241E /* Supporting Files */,
+			);
+			path = ImagineUpstateHackathonTests;
+			sourceTree = "<group>";
+		};
+		C175F7061B3E248500D4241E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C175F7071B3E248500D4241E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C175F6EC1B3E248500D4241E /* ImagineUpstateHackathon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C175F70C1B3E248500D4241E /* Build configuration list for PBXNativeTarget "ImagineUpstateHackathon" */;
+			buildPhases = (
+				C175F6E91B3E248500D4241E /* Sources */,
+				C175F6EA1B3E248500D4241E /* Frameworks */,
+				C175F6EB1B3E248500D4241E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImagineUpstateHackathon;
+			productName = ImagineUpstateHackathon;
+			productReference = C175F6ED1B3E248500D4241E /* ImagineUpstateHackathon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C175F7011B3E248500D4241E /* ImagineUpstateHackathonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C175F70F1B3E248500D4241E /* Build configuration list for PBXNativeTarget "ImagineUpstateHackathonTests" */;
+			buildPhases = (
+				C175F6FE1B3E248500D4241E /* Sources */,
+				C175F6FF1B3E248500D4241E /* Frameworks */,
+				C175F7001B3E248500D4241E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C175F7041B3E248500D4241E /* PBXTargetDependency */,
+			);
+			name = ImagineUpstateHackathonTests;
+			productName = ImagineUpstateHackathonTests;
+			productReference = C175F7021B3E248500D4241E /* ImagineUpstateHackathonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C175F6E51B3E248500D4241E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "harrison.r.stall@vanderbilt.edu";
+				TargetAttributes = {
+					C175F6EC1B3E248500D4241E = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					C175F7011B3E248500D4241E = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = C175F6EC1B3E248500D4241E;
+					};
+				};
+			};
+			buildConfigurationList = C175F6E81B3E248500D4241E /* Build configuration list for PBXProject "ImagineUpstateHackathon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C175F6E41B3E248500D4241E;
+			productRefGroup = C175F6EE1B3E248500D4241E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C175F6EC1B3E248500D4241E /* ImagineUpstateHackathon */,
+				C175F7011B3E248500D4241E /* ImagineUpstateHackathonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C175F6EB1B3E248500D4241E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C175F6F81B3E248500D4241E /* Main.storyboard in Resources */,
+				C175F6FD1B3E248500D4241E /* LaunchScreen.xib in Resources */,
+				C112A8741B3EF95400FD4825 /* lots.json in Resources */,
+				C175F6FA1B3E248500D4241E /* Images.xcassets in Resources */,
+				C116DB5C1B3EF12F009564DE /* PayPalMobile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C175F7001B3E248500D4241E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C175F6E91B3E248500D4241E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C175F6F51B3E248500D4241E /* ViewController.swift in Sources */,
+				C112A87A1B3EFC5200FD4825 /* AppModel.swift in Sources */,
+				C112A8781B3EFC4900FD4825 /* DataManager.swift in Sources */,
+				C175F7171B3E4FAF00D4241E /* ParkingLocation.swift in Sources */,
+				C175F7151B3E441700D4241E /* MapViewController.swift in Sources */,
+				C175F6F31B3E248500D4241E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C175F6FE1B3E248500D4241E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C175F7091B3E248500D4241E /* ImagineUpstateHackathonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C175F7041B3E248500D4241E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C175F6EC1B3E248500D4241E /* ImagineUpstateHackathon */;
+			targetProxy = C175F7031B3E248500D4241E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C175F6F61B3E248500D4241E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C175F6F71B3E248500D4241E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C175F6FB1B3E248500D4241E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C175F6FC1B3E248500D4241E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C175F70A1B3E248500D4241E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C175F70B1B3E248500D4241E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C175F70D1B3E248500D4241E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ImagineUpstateHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C175F70E1B3E248500D4241E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ImagineUpstateHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C175F7101B3E248500D4241E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ImagineUpstateHackathonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagineUpstateHackathon.app/ImagineUpstateHackathon";
+			};
+			name = Debug;
+		};
+		C175F7111B3E248500D4241E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ImagineUpstateHackathonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagineUpstateHackathon.app/ImagineUpstateHackathon";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C175F6E81B3E248500D4241E /* Build configuration list for PBXProject "ImagineUpstateHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C175F70A1B3E248500D4241E /* Debug */,
+				C175F70B1B3E248500D4241E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C175F70C1B3E248500D4241E /* Build configuration list for PBXNativeTarget "ImagineUpstateHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C175F70D1B3E248500D4241E /* Debug */,
+				C175F70E1B3E248500D4241E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C175F70F1B3E248500D4241E /* Build configuration list for PBXNativeTarget "ImagineUpstateHackathonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C175F7101B3E248500D4241E /* Debug */,
+				C175F7111B3E248500D4241E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C175F6E51B3E248500D4241E /* Project object */;
+}
