@@ -19,3 +19,47 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+.attendant-spots-left{
+  font-size: 5em;
+  position: absolute;
+  top: 60px;
+  left: 45px;
+
+}
+.attendant-container {
+  width: 420px;
+  min-height: 450px;
+  padding-right: 85px;
+  background-color: $very-light-gray;
+  position: relative;
+
+}
+.attendant-car-in,
+.attendant-car-out{
+  height: 100px;
+  width: 100px;
+  margin-top: 55px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: block;
+
+
+}
+.attendant-buttons{
+  position: absolute;
+  right: 55px;
+}
+.attendant-log-on {
+
+  position: absolute;
+  bottom: 30px;
+  left: 120px;
+
+}
+.attendant-check-reservations {
+  position: absolute;
+  top: 250px;
+  left: 20px;
+
+}
+
