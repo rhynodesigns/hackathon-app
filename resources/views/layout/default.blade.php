@@ -2,8 +2,9 @@
 	<title>Parking</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><div id="body">
 @include('layout.header')
   <div class="contents"> @yield('content') </div>
+</div>
 </body>
 </html>

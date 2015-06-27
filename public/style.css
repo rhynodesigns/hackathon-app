@@ -1,36 +1,45 @@
 img#logo{
-	position:relative;
-	width:414px;
-	z-index:-9;
-	/* margin:auto; */	
+	position: relative;
+	margin-left: 3;
+	width: 414;	
+	margin-top: 10;
 }
 header{
-	width:414;
+	width: 420;
 	margin:auto;
 	padding-top: 20;
 }
 body{
 	margin: 0;
 	width: 100%;
-	background-color: lightgreen;
+	background-color: white;
 	padding: 0;
+	
+}
+
+div#body{
+	margin:auto;
+	width:500px;
+	background-color:lightgreen;
+	border: #8BC34A;
+	border-width: 3px;
+	border-style: solid;
 }
 
 div.menubar{ /* This is the holding box for the menu bar */
-	width:600px;
 	position:relative;
 	margin:auto;
 	margin-top: 20px;
+	background: #4CAF50;
+	border-radius:8px;
 }
 
 ul.menulink{ /* This is where a majority of the info goes, this is the "list" of links */
 	position:relative;
 	text-align:center;
-	background: #4CAF50;
 	list-style-type:none;
-	padding-top: 14px;
 	padding-left: 0;
-	height:30px;
+	height: 30px;
 	width: 414px;
 	border-radius:8px;
 }
@@ -50,7 +59,8 @@ li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
 div.body{
 	width: 414px;
 	margin:auto;
-	margin-top:50px;
+	margin-top: 40;
+	margin-bottom: 20px;
 	padding: 18px;
 	background: rgba(0, 0, 0, 0.64);
 	border-radius:8px;
