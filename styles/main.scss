@@ -19,3 +19,208 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+
+input {
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+.business-page {
+  @include outer-container(414px);
+  height: 736px;
+  border: 1px solid black;
+  background: linear-gradient(rgba(163, 205, 69, 1), rgba(93, 172, 56, 1));
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.business-search {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 180px;
+  border-radius: 10px;
+  margin-top: 30%;
+}
+
+.business-create-form {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 180px;
+  border-radius: 10px;
+  margin-top: 10%;
+}
+
+.business-name-text {
+  color: white;
+}
+
+.business-address-text {
+  color: white;
+  margin-top: 10px;
+}
+
+.business-spaces-text {
+  color: white;
+}
+
+.business-hours-text {
+  color: white;
+}
+
+.business-price-text{
+  color: white;
+}
+
+.create-input {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 40px;
+  border: 1px solid white;
+  margin-bottom: 7%;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  text-align: center;
+  color: white;
+}
+
+.company-lot-edit-form {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 180px;
+  border-radius: 10px;
+  margin-top: 30%;
+}
+
+.company-name-input {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: 10%;
+  outline: none;
+  text-align: center;
+  color: white;
+}
+
+.edit-input {
+  @include span-columns(11);
+  @include shift(.5);
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: 10%;
+  outline: none;
+  text-align: center;
+  color: white;
+}
+
+.edit-save {
+  @include span-columns(6);
+  @include shift(3);
+  margin-top: 10%;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 40px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px;
+}
+
+.business-form-submit {
+  @include span-columns(6);
+  @include shift(3);
+  margin-top: 10%;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 40px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px;
+}
+
+.business-form-submit:hover {
+  background-color: white;
+  color: rgba(163, 205, 69, 1);
+  transition: 1s;
+}
+
+.company-lot-edit-delete {
+  @include span-columns(6);
+  @include shift(3);
+  margin-top: 75%;
+  border: 1px solid rgba(195, 64, 58, 1);
+  border-radius: 10px;
+  height: 40px;
+  color: rgba(195, 64, 58, 1);
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+.search-input {
+  @include span-columns(4);
+  @include shift(4);
+  margin-top: 10%;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 30px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.search-input:hover {
+  background-color: white;
+  color: rgba(163, 205, 69, 1);
+}
+
+.create-new-model {
+  @include span-columns(6);
+  @include shift(3);
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 30px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.create-new-model:hover {
+  background-color: white;
+  color: rgba(163, 205, 69, 1);
+}
+
+.company-results {
+  @include span-columns(11.4);
+  @include shift(.3);
+  margin-top: 5%;
+}
+
+.company-results-header {
+  color: white;
+}
+
+.edit-lot-information {
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+td {
+  padding: 3px;
+}
+
+th {
+  padding: 3px;
+}

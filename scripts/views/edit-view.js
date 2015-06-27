@@ -4,7 +4,8 @@ export default Backbone.View.extend({
   template: JST.editform,
 
   events: {
-    'submit .company-lot-edit-form': 'saveEdit'
+    'submit .company-lot-edit-form': 'saveEdit',
+    'click .company-lot-edit-delete': 'deleteLot'
   },
 
   initialize: function() {
@@ -19,11 +20,11 @@ export default Backbone.View.extend({
 
   saveEdit: function(e) {
     e.preventDefault();
-    var lotName = this.$('.lot-name-edit-input').val();
-    var lotAddress = this.$('.lot-address-edit-input').val();
-    var lotSpaces = this.$('.lot-spaces-edit-input').val();
-    var lotHours = this.$('.lot-hours-edit-input').val();
-    var lotPrice = this.$('.lot-price-edit-input').val();
+    var lotName = this.$('.lot-name-edit').val();
+    var lotAddress = this.$('.lot-address-edit').val();
+    var lotSpaces = this.$('.lot-spaces-edit').val();
+    var lotHours = this.$('.lot-hours-edit').val();
+    var lotPrice = this.$('.lot-price-edit').val();
     this.model.set({
       name: lotName,
       address: lotAddress,
@@ -32,6 +33,15 @@ export default Backbone.View.extend({
       price: lotPrice
     });
     console.log(this.model);
-    router.route('business');
+    router.navigate('business', {trigger: true});
+  },
+
+  deleteLot: function(e) {
+    e.preventDefault();
+    var answer = confirm("Are you sure you want to delete this lot? This is irreversible");
+    if(answer) {
+      this.model.destroy();
+      router.navigate('business', {trigger: true});
+    }
   }
 });

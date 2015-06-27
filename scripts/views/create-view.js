@@ -1,8 +1,10 @@
+import router from './../router';
+
 export default Backbone.View.extend({
   template: JST.businesscreate,
 
   events: {
-    'submit .business-form': 'saveModel'
+    'submit .business-create-form': 'saveModel'
   },
 
   initialize: function() {
@@ -16,12 +18,12 @@ export default Backbone.View.extend({
 
   saveModel: function(e) {
     e.preventDefault();
-    var lotName = this.$('.business-name-input').val();
-    var lotAddress = this.$('.business-address-input').val();
-    var lotSpaces = this.$('.business-available-spaces-input').val();
-    var lotHours = this.$('.business-hours-input').val();
-    var lotPrice = this.$('.business-price-input').val();
-    this.collection.add({
+    var lotName = this.$('.business-name-create').val();
+    var lotAddress = this.$('.business-address-create').val();
+    var lotSpaces = this.$('.business-available-spaces-create').val();
+    var lotHours = this.$('.business-hours-create').val();
+    var lotPrice = this.$('.business-price-create').val();
+    this.collection.create({
       name: lotName,
       address: lotAddress,
       availableSpaces: lotSpaces,
@@ -29,5 +31,6 @@ export default Backbone.View.extend({
       price: lotPrice
     });
     console.log(this.collection);
+    router.navigate('business', {trigger: true});
   }
 });

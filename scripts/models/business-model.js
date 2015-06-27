@@ -5,14 +5,15 @@ var Lot = Backbone.Model.extend({
       address: '',
       availableSpaces: '',
       hours: '',
-      price: ''
+      price: '',
+      created_at: new Date()
     };
   }
 });
 
 var LotCollection = Backbone.Collection.extend({
-  model: Lot
-  //url: 'greenville-parking.com'
+  model: Lot,
+  url: 'greenville-parking.com/companies/1/lots'
 });
 
 export default {Lot, LotCollection};
