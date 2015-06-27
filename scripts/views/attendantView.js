@@ -9,25 +9,45 @@ var AttendantView =Backbone.View.extend({
         'click .attendant-car-out': 'carOut'
     },
     initialize: function(){
+        this.carMax = 55;
+        this.available=30;
         this.cars = 30;
+        this.reserved= 3;
+
         this.render();
     },
 
     render: function(){
         this.$el.html(JST['attendant']({
-            "cars":this.cars
+            "cars":this.available,
+            'reserved':this.reserved
         }));
     },
     carIn: function(){
-        this.cars = $('.attendant-spots-left').text();
-        this.cars = parseInt(this.cars) + 1;
-        this.render(this.cars);
+        this.available = $('.attendant-spots-left').text();
+        this.available = parseInt(this.available) + 1;
+        if(this.available > this.carMax) {
+            this.available -= 1;
+            alert('The lot is full');
+        }else if(this.available === this.carMax){
+            this.render(this.available);
+            alert('The lot is full')
+
+        }else if(this.available > (this.carMax - 3)){
+            this.render(this.available);
+            alert('There is room for only ' + (this.carMax - this.available) + ' more cars');
+
+        }else this.render(this.available);
     },
     carOut: function(){
-        this.cars = $('.attendant-spots-left').text();
-        this.cars = parseInt(this.cars) - 1;
-        this.render(this.cars);
-
+        this.available = $('.attendant-spots-left').text();
+        this.available = parseInt(this.available) - 1;
+        if(this.available >= 0){
+            this.render(this.available);
+        }else this.available += 1;
+    },
+    calculateAvailable:function(){
+        return this.available = this.cars - this.reserved;
     }
 
 });
