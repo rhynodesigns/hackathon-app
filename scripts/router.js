@@ -3,20 +3,21 @@ import {LotCollection} from './models/lots';
 
 var Router = Backbone.Router.extend({
   routes: {
-    '': 'index',
+    '': 'parking',
     'parking': 'parking',
     'attendant': 'attendant',
     'business': 'business'
   },
 
   parking: function() {
-  	// this.lots = new Backbone.Collection({
-  	// 	'address': 'stuff'
-  	// });
+  	this.lots = new Backbone.Collection({
+  		'address': '101 North Main Street Greenville, SC'
+  	});
   	// this.lots.fetch().then(function(response) {
-  	// 	this.UserView = new UserView({collection: this.lots});
+  		this.UserView = new UserView({collection: this.lots});
+  		$('#app').html(this.UserView.el);
   	// }.bind(this));
-	console.log('hi');
+	// console.log('hi');
   }
 
 });
