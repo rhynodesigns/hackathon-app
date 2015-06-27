@@ -1,12 +1,11 @@
-<div id="map-canvas" >
-	 
+<div class="user-container">
+	<div id="map-canvas"></div>
+	<div class="lot-specifics">
+		<h2 class="lot-title">A place to Park</h2>	
+		<p class="lot-address">111 BFE Blvd. Greenville, SC</p>
+		<p class="lot-price">$ 5</p>
+		<form class="lot-reservation-form">
+			<button class="lot-reservation-form-submit">Reserve!</button>
+		</form>
+	</div>
 </div>
-<div id="map-canvas"></div>
-<div class="lot-price">
-	<h3 class="lot-price-text">$ {{this.[0].price}}</h3>
-</div>
-<div class="lot-reservation">
-	<button class="lot-reservation-action">Reserve</button>
-</div>
-
-{{log this.[0]}}

@@ -11,6 +11,7 @@ export default Backbone.View.extend({
 	initialize: function() {
 		var self = this;
 		var coords = [];
+		var counter = 0;
 		_.map(this.collection.models, function(lot) {
 			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+lot.get('address')+'&key=AIzaSyAxLmBk-m1DqRj2OhzXzsVr6ECwRZty0X4';
 			$.ajax({
@@ -18,20 +19,13 @@ export default Backbone.View.extend({
 				type: 'GET'
 			}).then(function(response) {
 				self.render();
+				var address = self.collection.models[counter].attributes.address;
+				var price = self.collection.models[counter].attributes.price;
+				counter++;
 				var lat = response.results[0].geometry.location.lat;
 				var lng = response.results[0].geometry.location.lng;
-				coords.push({'lng': lng, 'lat': lat});
-				// url = GMaps.staticMapURL({
-				//   size: [610, 300],
-				//   lat: 34.852618,
-				//   lng: -82.39401,
-				//   markers: [
-				//     {lat: lat, lng: lng},
-				//   ]
-				// });
-
-				// $('<img/>').attr('src', url)
-				//   .appendTo('#map-canvas');
+				coords.push({'lng': lng, 'lat': lat, 'address': address, 'price': price});
+				
 				var map = new GMaps({
 				  div: '#map-canvas',
 				  lat: 34.852618,
@@ -44,6 +38,7 @@ export default Backbone.View.extend({
 					  title: 'Parking-Lot',
 					  click: function(e) {
 					    alert(item.lat);
+					    console.log(item);
 					  }
 					});
 				});
