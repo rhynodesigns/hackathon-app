@@ -1,10 +1,10 @@
 import UserView from './views/user';
 import {LotCollection} from './models/lots';
 
-var Router = Backbone.Model.extend({
+var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'user': 'user',
+    'parking': 'parking',
     'attendant': 'attendant',
     'business': 'business'
   },
