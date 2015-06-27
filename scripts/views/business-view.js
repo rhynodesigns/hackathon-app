@@ -1,4 +1,5 @@
 import CompanyLotsView from './company-lot-view';
+import router from './../router';
 
 export default Backbone.View.extend({
   template: JST.business,

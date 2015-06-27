@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "Lots Corp",
+    "address": "101 North Main St. Greenville, SC 29605",
+    "availableSpaces": "25",
+    "hours": "8:00am to 6:00pm",
+    "price": "7.00",
+  },
+]

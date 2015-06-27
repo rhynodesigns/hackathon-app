@@ -13,7 +13,7 @@ var Lot = Backbone.Model.extend({
 
 var LotCollection = Backbone.Collection.extend({
   model: Lot,
-  url: 'greenville-parking.com/companies/1/lots'
+  url: 'http://greenville-parking.com/companies/1/lots'
 });
 
 export default {Lot, LotCollection};
