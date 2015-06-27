@@ -21,39 +21,5 @@ Route::post('companies/{id}/lots', 'LotController@store');
 
 Route::get('lots', 'LotController@all');
 
-Route::get('reservations', function () {
-
-    $reservations = [];
-
-    $reservations[] = [
-        'id' => 1,
-        'reservation_key' => 12438434
-    ];
-
-    $reservations[] = [
-        'id' => 2,
-        'reservation_key' => 97134873
-    ];
-
-    $reservations[] = [
-        'id' => 3,
-        'reservation_key' => 78438292
-    ];
-
-    $reservations[] = [
-        'id' => 4,
-        'reservation_key' => 32419341
-    ];
-
-    $reservations[] = [
-        'id' => 5,
-        'reservation_key' => 45354234
-    ];
-
-    $reservations[] = [
-        'id' => 6,
-        'reservation_key' => 98734995
-    ];
-
-    return collect($reservations);
-});
+Route::get('reservations', 'ReservationController@index');
+Route::post('reservations', 'ReservationController@store');
