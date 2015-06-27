@@ -40,5 +40,20 @@ Route::get('reservations', function () {
         'reservation_key' => 78438292
     ];
 
+    $reservations[] = [
+        'id' => 4,
+        'reservation_key' => 32419341
+    ];
+
+    $reservations[] = [
+        'id' => 5,
+        'reservation_key' => 45354234
+    ];
+
+    $reservations[] = [
+        'id' => 6,
+        'reservation_key' => 98734995
+    ];
+
     return collect($reservations);
 });
