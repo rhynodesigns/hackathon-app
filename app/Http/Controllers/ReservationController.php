@@ -97,7 +97,6 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::find($id);
         $reservation->delete();
-
     }
 
 

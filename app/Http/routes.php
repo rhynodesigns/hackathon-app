@@ -23,3 +23,4 @@ Route::get('lots', 'LotController@all');
 
 Route::get('reservations', 'ReservationController@index');
 Route::post('reservations', 'ReservationController@store');
+Route::delete('reservations/{id}', 'ReservationController@destroy');
