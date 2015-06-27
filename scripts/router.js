@@ -1,11 +1,16 @@
+
 import BusinessView from './views/business-view';
 import CreateView from './views/create-view';
 import EditView from './views/edit-view';
 import CompanyLotsView from './views/company-lot-view';
-
+import ConfirmationView from './views/confirmation';
+import AttendantView from './views/attendantView';
+import {ReservationCollection} from './models/attendantModel';
+import AttendantReservationView from './views/AttendantReservationView';
 import {LotCollection} from './models/business-model';
 import UserView from './views/user';
-// import {LotCollection} from './models/lots';
+import {LotsCollection} from './models/lots';
+
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -15,7 +20,15 @@ var Router = Backbone.Router.extend({
     'business': 'business',
     'business/company/:company_id/lots': 'displayCompanyLots',
     'business/create': 'createForm',
-    'business/:id/edit': 'editForm'
+    'business/:id/edit': 'editForm',
+    'confirmation': 'confirmation',
+    'attendant/reservations': 'checkReservations'
+  },
+
+  initialize: function(){
+    this.reservations = new ReservationCollection();
+    this.lots = new LotsCollection();
+    this.lots.fetch();
   },
 
   index: function() {
@@ -23,40 +36,8 @@ var Router = Backbone.Router.extend({
   },
 
   business: function() {
-    var lots = new LotCollection(
-    [
-      {
-        id: 1,
-        company: 'Park Corp',
-        company_id: 1,
-        name: 'Hackathon',
-        address: '101 North Main',
-        availableSpaces: '12',
-        hours: '8:00am to 6:00pm',
-        price: '5.00'
-      },
-      {
-      id: 2,
-      company: 'Park Corp',
-      company_id: 1,
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-      },
-      {
-      id: 3,
-      company: 'Lot Corp',
-      company_id: 2,
-      name: 'Bay Lot',
-      address: '101 South Main',
-      availableSpaces: '24',
-      hours: '8:00am to 6:00pm',
-      price: '7.00'
-      }
-    ]
-    );
+    var lots = new LotCollection();
+    lots.fetch();
     var view = new BusinessView({collection: lots});
     $('#app').html(view.el);
   },
@@ -105,66 +86,50 @@ var Router = Backbone.Router.extend({
   },
 
   editForm: function(id) {
-    var lots = new LotCollection([
-    {
-      id: 1,
-      company: 'Park Corp',
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    },
-    {
-    id: 2,
-    company: 'Park Corp',
-    name: 'Hackathon',
-    address: '101 North Main',
-    availableSpaces: '12',
-    hours: '8:00am to 6:00pm',
-    price: '5.00'
-    },
-    {
-    id: 3,
-    company: 'Lot Corp',
-    name: 'Bay Lot',
-    address: '101 South Main',
-    availableSpaces: '24',
-    hours: '8:00am to 6:00pm',
-    price: '7.00'
-  }
-  ]);
-    var view = new EditView({
-      collection: lots,
-      model: id
+    var lots = new LotCollection();
+    lots.fetch().then(function(list) {
+      var view = new EditView({
+        collection: list,
+        model: id
       });
-    $('#app').html(view.el);
+      $('#app').html(view.el);
+    });
+
+
+  },
+
+  attendant: function(){
+    $('#app').html(new AttendantView().el);
+  },
+
+  checkReservations: function() {
+
+    //this.reservations.add([
+    //  {id: 1, name: 'Johnson'},
+    //  {id: 2, name: 'Hackett'}
+    //]);
+    //console.log(this.reservations);
+    this.reservations.fetch().then(function(){
+      $('#app').html(new AttendantReservationView({collection: this.reservations}).el);
+    }.bind(this));
+
+
   },
 
   parking: function() {
-  	this.lots = new LotCollection();
-   //    {'company': 'Best Parking EVAR!',
-   //    'id': 1,
-   //    'title': 'A parking lot',
-   //    'address': '101 North Main Street Greenville, SC',
-   //    'price': 5,
-   //    'totalSpaces': 50,
-   //    'spacesLeft': 45},
-   //    {'company': 'Parking Company, Inc.',
-   //    'id': 2,
-   //    'title': 'Another parking lot',
-   //    'address': '131 North Main Street Greenville, SC',
-   //    'price': 4,
-   //    'totalSpaces': 30,
-   //    'spacesLeft': 15},
-   //    ]
-  	// );
+  	this.lots = new LotsCollection();
   	this.lots.fetch().then(function(response) {
   		this.UserView = new UserView({collection: this.lots});
   		$('#app').html(this.UserView.el);
   	}.bind(this));
-	// console.log('hi');
-  },  
+  },
+
+  confirmation: function() {
+    this.reservations.fetch().then(function(response) {
+      this.ConfirmationView = new ConfirmationView({collection: this.reservations, data: this.lots});
+      $('#app').html(this.ConfirmationView.el);
+    }.bind(this));
+  }
 
 });
 

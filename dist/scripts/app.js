@@ -44,6 +44,12 @@ var _viewsCompanyLotView2 = _interopRequireDefault(_viewsCompanyLotView);
 
 var _modelsBusinessModel = require('./models/business-model');
 
+var _viewsUser = require('./views/user');
+
+var _viewsUser2 = _interopRequireDefault(_viewsUser);
+
+// import {LotCollection} from './models/lots';
+
 var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
@@ -162,7 +168,33 @@ var Router = Backbone.Router.extend({
       model: id
     });
     $('#app').html(view.el);
+  },
+
+  parking: function parking() {
+    this.lots = new _modelsBusinessModel.LotCollection();
+    //    {'company': 'Best Parking EVAR!',
+    //    'id': 1,
+    //    'title': 'A parking lot',
+    //    'address': '101 North Main Street Greenville, SC',
+    //    'price': 5,
+    //    'totalSpaces': 50,
+    //    'spacesLeft': 45},
+    //    {'company': 'Parking Company, Inc.',
+    //    'id': 2,
+    //    'title': 'Another parking lot',
+    //    'address': '131 North Main Street Greenville, SC',
+    //    'price': 4,
+    //    'totalSpaces': 30,
+    //    'spacesLeft': 15},
+    //    ]
+    // );
+    this.lots.fetch().then((function (response) {
+      this.UserView = new _viewsUser2['default']({ collection: this.lots });
+      $('#app').html(this.UserView.el);
+    }).bind(this));
+    // console.log('hi');
   }
+
 });
 
 var router = new Router();
@@ -172,6 +204,39 @@ module.exports = exports['default'];
 });
 
 require.register("models/business-model", function(exports, require, module){
+  'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var Lot = Backbone.Model.extend({
+  idAttribute: '_id',
+  defaults: function defaults() {
+    return {
+      name: '',
+      company: '',
+      address: '',
+      totalSpaces: '',
+      hours: '',
+      price: '',
+      lattitude: '34.8628',
+      longitude: '-82.3915',
+      created_at: new Date()
+    };
+  }
+});
+
+var LotCollection = Backbone.Collection.extend({
+  model: Lot,
+  url: 'http://greenville-parking.com/companies/1/lots'
+});
+
+exports['default'] = { Lot: Lot, LotCollection: LotCollection };
+module.exports = exports['default'];
+  
+});
+
+require.register("models/lots", function(exports, require, module){
   'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -304,7 +369,7 @@ exports['default'] = Backbone.View.extend({
     this.collection.create({
       name: lotName,
       address: lotAddress,
-      availableSpaces: lotSpaces,
+      totalSpaces: lotSpaces,
       hours: lotHours,
       price: lotPrice
     });
@@ -373,6 +438,96 @@ exports['default'] = Backbone.View.extend({
       _router2['default'].navigate('business', { trigger: true });
     }
   }
+});
+module.exports = exports['default'];
+  
+});
+
+require.register("views/user", function(exports, require, module){
+  'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+exports['default'] = Backbone.View.extend({
+
+	template: JST['user'],
+	tagName: 'div',
+	className: 'user-view',
+
+	events: {
+		'submit': 'reserveSpace',
+		'click .fa-close': 'hideForm'
+	},
+
+	initialize: function initialize() {
+		var self = this;
+		var coords = [];
+		var counter = 0;
+		_.map(this.collection.models, function (lot) {
+			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + lot.get('address') + '&key=AIzaSyAxLmBk-m1DqRj2OhzXzsVr6ECwRZty0X4';
+			$.ajax({
+				url: url,
+				type: 'GET'
+			}).then(function (response) {
+				self.render();
+				var address = self.collection.models[counter].attributes.address;
+				var price = self.collection.models[counter].attributes.price;
+				var title = self.collection.models[counter].attributes.title;
+				var id = self.collection.models[counter].attributes._id;
+				var remaining = self.collection.models[counter].attributes.spacesLeft;
+				var totalSpaces = self.collection.models[counter].attributes.totalSpaces;
+				counter++;
+				var lat = response.results[0].geometry.location.lat;
+				var lng = response.results[0].geometry.location.lng;
+				console.log(lat, lng);
+				coords.push({ 'lng': lng, 'lat': lat, 'address': address, 'price': price, 'title': title, 'id': id, 'remaining': remaining, 'totalSpaces': totalSpaces });
+				var map = new GMaps({
+					div: '#map-canvas',
+					lat: 34.852618,
+					lng: -82.39401
+				});
+				_.map(coords, function (item) {
+					map.addMarker({
+						lat: item.lat,
+						lng: item.lng,
+						title: 'Parking-Lot',
+						click: function click(e) {
+							$('.lot-specifics').fadeToggle();
+							$('.lot-title').html(item.title);
+							$('.lot-address').html(item.address);
+							$('.lot-price').html('$ ' + item.price);
+							$('.lot-specifics').attr('id', item.id);
+							console.log(item.id);
+						}
+					});
+				});
+			});
+		});
+	},
+
+	render: function render() {
+		this.$el.html(this.template(this.collection.toJSON()));
+	},
+
+	reserveSpace: function reserveSpace(e) {
+		e.preventDefault();
+		var id = $('.lot-specifics').attr('id');
+		_.filter(this.collection.models, function (item) {
+			if (item.attributes._id == id) {
+				var remaining = item.attributes.spacesLeft;
+				remaining--;
+				item.set('spacesLeft', remaining);
+				item.save();
+				console.log(item);
+			}
+		});
+	},
+
+	hideForm: function hideForm() {
+		$('.lot-specifics').fadeToggle();
+	}
+
 });
 module.exports = exports['default'];
   

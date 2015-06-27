@@ -18,6 +18,7 @@
 		C112A8741B3EF95400FD4825 /* lots.json in Resources */ = {isa = PBXBuildFile; fileRef = C112A8731B3EF95400FD4825 /* lots.json */; };
 		C112A8781B3EFC4900FD4825 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112A8771B3EFC4900FD4825 /* DataManager.swift */; };
 		C112A87A1B3EFC5200FD4825 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112A8791B3EFC5200FD4825 /* AppModel.swift */; };
+		C112A87C1B3F140400FD4825 /* greenvilleparking.gif in Resources */ = {isa = PBXBuildFile; fileRef = C112A87B1B3F140400FD4825 /* greenvilleparking.gif */; };
 		C116DB5C1B3EF12F009564DE /* PayPalMobile in Resources */ = {isa = PBXBuildFile; fileRef = C116DB5B1B3EF12F009564DE /* PayPalMobile */; };
 		C175F6F31B3E248500D4241E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F6F21B3E248500D4241E /* AppDelegate.swift */; };
 		C175F6F51B3E248500D4241E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F6F41B3E248500D4241E /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		C112A8731B3EF95400FD4825 /* lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lots.json; sourceTree = "<group>"; };
 		C112A8771B3EFC4900FD4825 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C112A8791B3EFC5200FD4825 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		C112A87B1B3F140400FD4825 /* greenvilleparking.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = greenvilleparking.gif; sourceTree = "<group>"; };
 		C116DB5B1B3EF12F009564DE /* PayPalMobile */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PayPalMobile; sourceTree = "<group>"; };
 		C175F6ED1B3E248500D4241E /* ImagineUpstateHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagineUpstateHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C175F6F11B3E248500D4241E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,8 +130,10 @@
 				C112A8771B3EFC4900FD4825 /* DataManager.swift */,
 				C112A8791B3EFC5200FD4825 /* AppModel.swift */,
 				C175F6F61B3E248500D4241E /* Main.storyboard */,
+				C112A8731B3EF95400FD4825 /* lots.json */,
 				C175F6F91B3E248500D4241E /* Images.xcassets */,
 				C175F6FB1B3E248500D4241E /* LaunchScreen.xib */,
+				C112A87B1B3F140400FD4825 /* greenvilleparking.gif */,
 				C175F6F01B3E248500D4241E /* Supporting Files */,
 			);
 			path = ImagineUpstateHackathon;
@@ -138,7 +142,6 @@
 		C175F6F01B3E248500D4241E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C112A8731B3EF95400FD4825 /* lots.json */,
 				C116DB5B1B3EF12F009564DE /* PayPalMobile */,
 				C175F6F11B3E248500D4241E /* Info.plist */,
 			);
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C112A87C1B3F140400FD4825 /* greenvilleparking.gif in Resources */,
 				C175F6F81B3E248500D4241E /* Main.storyboard in Resources */,
 				C175F6FD1B3E248500D4241E /* LaunchScreen.xib in Resources */,
 				C112A8741B3EF95400FD4825 /* lots.json in Resources */,

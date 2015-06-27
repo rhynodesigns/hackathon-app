@@ -5,7 +5,7 @@
 $base-font-family: $helvetica;
 
 // Colors
-$green: rgb(76,175,80);
+$green: #4CAF50;
 $blue: #477dca;
 $dark-gray: #333;
 $medium-gray: #999;
@@ -16,10 +16,11 @@ $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 @import 'user';
+@import 'confirmation';
 
 body {
   font-family: $base-font-family;
-  background-color: $base-background-color;
+  background-color: #90EE90;
   color: $base-font-color;
 }
 
@@ -34,7 +35,7 @@ button {
 .business-page {
   @include outer-container(414px);
   height: 736px;
-  border: 1px solid black;
+  border-radius: 8px;
   background: linear-gradient(rgba(163, 205, 69, 1), rgba(93, 172, 56, 1));
   text-align: center;
   overflow-y: scroll;
@@ -42,21 +43,26 @@ button {
 
 img#logo{
 	position:relative;
-	width:414px;
-	z-index:-9;
+  margin-left: 5px;
+  margin-top: 5px;
+	width:480px;
+	z-index: 1;
 	/* margin:auto; */
 }
 header{
-	max-width:414;
+	max-width:400px;
 	margin: auto;
 	padding-top: 20;
 }
 
 div.menubar{ /* This is the holding box for the menu bar */
-	width:600px;
+	width:400px;
 	position:relative;
 	margin:auto;
-	margin-top: 20px;
+  margin-top: 5px;
+  background-color: rgba(76, 175, 80, 1);
+  border-radius: 8px;
+  padding-bottom: 2px;
 }
 
 ul.menulink{ /* This is where a majority of the info goes, this is the "list" of links */
@@ -67,7 +73,7 @@ ul.menulink{ /* This is where a majority of the info goes, this is the "list" of
 	padding-top: 14px;
 	padding-left: 0;
 	height:30px;
-	width: 414px;
+	width: 400px;
 	border-radius:8px;
 }
 
@@ -77,9 +83,7 @@ li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
 	font-family:helvetica;
 	text-transform:uppercase;
 	font-weight:bold;
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-top:3px;
+	padding: 3px;
 	color: white;
 }
 
@@ -88,7 +92,7 @@ li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
   @include shift(.5);
   height: 180px;
   border-radius: 10px;
-  margin-top: 30%;
+  margin-top: 5%;
 }
 
 .business-create-form {
@@ -269,4 +273,111 @@ td {
 
 th {
   padding: 3px;
+}
+
+.attendant-spots-left{
+  font-size: 5em;
+  position: absolute;
+  top: 60px;
+  left: 45px;
+  outline:none;
+}
+
+.attendant-spots-left:before {
+  content: 'Available';
+  font-size: .2em;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.attendant-reservations {
+  font-size: 5em;
+  position: absolute;
+  top: 220px;
+  left: 45px;
+
+}
+
+.attendant-reservations:before{
+  content: 'Reserved';
+  color: black;
+  font-size: .2em;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.attendant-reservations a {
+  color: maroon;
+  text-decoration: none;;
+}
+
+.attendant-container {
+  width: 414px;
+  height: 450px;
+  padding-right: 85px;
+  background-color: $very-light-gray;
+  position: relative;
+
+}
+
+.attendant-car-in,
+.attendant-car-out{
+  height: 100px;
+  width: 100px;
+  margin-top: 55px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: block;
+  outline: none;
+
+
+}
+
+.attendant-buttons{
+  position: absolute;
+  right: 55px;
+}
+
+.attendant-log-on {
+  width: 110px;
+  height: 45px;
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+
+}
+
+.attendant-lock-page {
+  width: 110px;
+  height: 45px;
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+
+}
+
+ul.attendant-reservation-list{
+ padding: 0 10px;
+}
+
+.attendant-reservation-list li{
+  margin-bottom: 5px;
+  list-style-type: none;
+  height: 40px;
+  border: 1px solid $dark-gray;
+  position: relative;
+}
+
+.attendant-list-reservation{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.attendant-list-name{
+  position: absolute;
+  left: 20px;
+  top: 10px;
 }

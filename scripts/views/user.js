@@ -5,7 +5,7 @@ export default Backbone.View.extend({
 	className: 'user-view',
 
 	events: {
-		'submit': 'reserveSpace',
+		'click .lot-reservation-form-submit': 'setId',
 		'click .fa-close': 'hideForm'
 	},
 
@@ -13,6 +13,7 @@ export default Backbone.View.extend({
 		var self = this;
 		var coords = [];
 		var counter = 0;
+		this.listenTo(this.collection, 'update add remove change', this.refresh);
 		_.map(this.collection.models, function(lot) {
 			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+lot.get('address')+'&key=AIzaSyAxLmBk-m1DqRj2OhzXzsVr6ECwRZty0X4';
 			$.ajax({
@@ -22,15 +23,14 @@ export default Backbone.View.extend({
 				self.render();
 				var address = self.collection.models[counter].attributes.address;
 				var price = self.collection.models[counter].attributes.price;
-				var title = self.collection.models[counter].attributes.title;
-				var id = self.collection.models[counter].attributes._id;
-				var remaining = self.collection.models[counter].attributes.spacesLeft;
+				var name = self.collection.models[counter].attributes.name;
+				var id = self.collection.models[counter].attributes.id;
+				var remaining = self.collection.models[counter].attributes.availableSpaces;
 				var totalSpaces = self.collection.models[counter].attributes.totalSpaces;
 				counter++;
 				var lat = response.results[0].geometry.location.lat;
 				var lng = response.results[0].geometry.location.lng;
-				console.log(lat, lng);
-				coords.push({'lng': lng, 'lat': lat, 'address': address, 'price': price, 'title': title, 'id': id, 'remaining': remaining, 'totalSpaces': totalSpaces});
+				coords.push({'lng': lng, 'lat': lat, 'address': address, 'price': price, 'name': name, 'id': id, 'remaining': remaining, 'totalSpaces': totalSpaces});
 				var map = new GMaps({
 				  div: '#map-canvas',
 				  lat: 34.852618,
@@ -43,7 +43,7 @@ export default Backbone.View.extend({
 					  title: 'Parking-Lot',
 					  click: function(e) {
 					  	$('.lot-specifics').fadeToggle();
-					    $('.lot-title').html(item.title);
+					    $('.lot-title').html(item.name);
 					    $('.lot-address').html(item.address);
 					    $('.lot-price').html('$ '+item.price);					  
 					    $('.lot-specifics').attr('id', item.id);
@@ -59,22 +59,19 @@ export default Backbone.View.extend({
 		this.$el.html(this.template(this.collection.toJSON()));
 	},
 
-	reserveSpace: function(e) {
-		e.preventDefault();
-		var id = $('.lot-specifics').attr('id');
-		_.filter(this.collection.models, function(item) {
-			if(item.attributes._id == id) {
-				var remaining = item.attributes.spacesLeft;
-				remaining--;
-				item.set('spacesLeft', remaining);
-				item.save();
-				console.log(item);
-			}
-		});
-	},
-
 	hideForm: function() {
 		$('.lot-specifics').fadeToggle();
+	},
+
+	refresh: function() {
+		this.collection.fetch().then(function() {
+			this.initialize();
+		}.bind(this));
+	},
+
+	setId: function() {
+		var id = $('.lot-specifics').attr('id');
+		localStorage.setItem('id', id);
 	}
 
 });

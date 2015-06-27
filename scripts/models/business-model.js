@@ -1,5 +1,6 @@
 var Lot = Backbone.Model.extend({
   idAttribute: '_id',
+  urlRoot: 'http://greenville-parking.com/companies/lots',
   defaults: function() {
     return {
       name: '',
