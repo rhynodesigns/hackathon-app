@@ -16,4 +16,9 @@ class Lot extends Model
         "latitude",
         "longitude"
     ];
+
+    public function setPriceAttribute($price)
+    {
+        $this->attributes['price'] = str_replace('$', '', $price);
+    }
 }
