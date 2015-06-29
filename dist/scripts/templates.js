@@ -12,6 +12,7 @@ this["JST"]["attendant"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"]
     + "</span></a></div>\n\n<div class=\"attendant-buttons\">\n    <button class=\"attendant-car-in\">In</button>\n    <button class=\"attendant-car-out\">Out</button>\n</div>\n<button class=\"attendant-log-on\">log on</button>\n</div>\n<button class=\"attendant-lock-page\">Lock</button>";
 },"useData":true});
 this["JST"]["attendantReservationSingle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+<<<<<<< HEAD
     var helper;
 
   return "<span class=\"attendant-list-name\">Reservation "
@@ -20,6 +21,18 @@ this["JST"]["attendantReservationSingle"] = Handlebars.template({"compiler":[6,"
 },"useData":true});
 this["JST"]["attendantReservations"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h2>Reservations</h2>\n<ul class=\"attendant-reservation-list\">\n\n</ul>\n\n";
+=======
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<span id=\""
+    + alias3(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\" class=\"attendant-list-name\">Reservation "
+    + alias3(((helper = (helper = helpers.reservation_key || (depth0 != null ? depth0.reservation_key : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"reservation_key","hash":{},"data":data}) : helper)))
+    + "</span>";
+},"useData":true});
+this["JST"]["attendantReservations"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"reservations-header\">Reservations</h2>\n<ul class=\"attendant-reservation-list\">\n\n</ul>\n\n";
+>>>>>>> master
 },"useData":true});
 this["JST"]["business"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"business-page\">\n  <div class=\"business-page\">\n    <header class=\"menubar\"><div class=\"menubar\">\n      <a href=\"/\"><img id=\"logo\" src=\"http://greenville-parking.com/img/greenvilleparking.gif\"></a>\n        <ul class=\"menulink\">\n      	  <li class=\"menulink\"><a class=\"menulink\" href=\"http://greenville-parking.com/\">Home</a></li>\n      	  <li class=\"menulink\"><a class=\"menulink\" href=\"http://austineady.github.io/hackathon-app/#/attendants\">Attendants</a></li>\n      	  <li class=\"menulink\"><a class=\"menulink\" href=\"http://austineady.github.io/hackathon-app/#/business\">Business</a></li>\n       	  <li class=\"menulink\"><a class=\"menulink\" href=\"http://austineady.github.io/hackathon-app/\">Park Now</a></li>\n        </ul>\n      </div>\n    </header>\n  <form class=\"business-search\">\n    <input type=\"text\" class=\"company-name-input\" placeholder=\"Enter Company Name\" autocomplete=\"on\" autofocus=\"on\">\n    <input type=\"submit\" class=\"search-input\" value=\"Search\">\n  </form>\n  <a href=\"#/business/create\"><button class=\"create-new-model\">Register New Lot</button></a>\n  <section class=\"company-results\"></section>\n</div>\n";
