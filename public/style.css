@@ -1,23 +1,24 @@
-img#logo{
+img#logo {
 	position: relative;
 	margin-left: 33px;
-	width: 414px;	
+	width: 414px;
 	margin-top: 18px;
 }
-header{
+
+header {
 	width: 399px;
 	margin: 8;
 	padding-top: 0;
 }
-body{
+
+body {
 	margin: 0;
 	width: 100%;
 	background-color: #90EE90;
 	padding: 0;
-	
 }
 
-div#body{
+div#body {
 	margin: auto;
 	width: 414;
 	margin-top: 0;
@@ -26,15 +27,15 @@ div#body{
 	border-width: 01;
 }
 
-div.menubar{ /* This is the holding box for the menu bar */
-	position:relative;
-	margin:auto;
+div.menubar { /* This is the holding box for the menu bar */
+	position: relative;
+	margin: auto;
 	margin-top: 9px;
 	background: #4CAF50;
 	border-radius:8px;
 }
 
-ul.menulink{ /* This is where a majority of the info goes, this is the "list" of links */
+ul.menulink { /* This is where a majority of the info goes, this is the "list" of links */
 	position:relative;
 	text-align:center;
 	list-style-type:none;
@@ -44,18 +45,20 @@ ul.menulink{ /* This is where a majority of the info goes, this is the "list" of
 	border-radius: 8px;
 }
 
-li.menulink, a.menulink,a:visited{ /* define how the menubar links look */
-	display:inline;
-	text-decoration:none;
-	font-family:helvetica;
-	text-transform:uppercase;
-	font-weight:bold;
+li.menulink,
+a.menulink,
+a:visited { /* define how the menubar links look */
+	display: inline;
+	text-decoration: none;
+	font-family: helvetica;
+	text-transform: uppercase;
+	font-weight: bold;
 	padding-left: 3px;
 	padding-right: 3px;
 	color: white;
 }
 
-div.body{
+div.body {
 	width: 363px;
 	margin: auto;
 	margin-top: 0;
@@ -66,19 +69,18 @@ div.body{
 }
 
 h {
-	font-family:sans-serif;
-	font-size: 30pt;
+	font-family: sans-serif;
+	font-size: 34px;
 	color:whitesmoke;
-	padding-left: 20;
-
 }
 
 p {
-	color:whitesmoke;
+	color: whitesmoke;
 	font-family: sans-serif;
+	line-height: 1.4em;
 }
 
-a{
+a {
 	text-decoration:none;
 	color: rgb(76, 175, 80);
 	font-weight: bold;
