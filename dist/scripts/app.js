@@ -42,13 +42,27 @@ var _viewsCompanyLotView = require('./views/company-lot-view');
 
 var _viewsCompanyLotView2 = _interopRequireDefault(_viewsCompanyLotView);
 
+var _viewsConfirmation = require('./views/confirmation');
+
+var _viewsConfirmation2 = _interopRequireDefault(_viewsConfirmation);
+
+var _viewsAttendantView = require('./views/attendantView');
+
+var _viewsAttendantView2 = _interopRequireDefault(_viewsAttendantView);
+
+var _modelsAttendantModel = require('./models/attendantModel');
+
+var _viewsAttendantReservationView = require('./views/AttendantReservationView');
+
+var _viewsAttendantReservationView2 = _interopRequireDefault(_viewsAttendantReservationView);
+
 var _modelsBusinessModel = require('./models/business-model');
 
 var _viewsUser = require('./views/user');
 
 var _viewsUser2 = _interopRequireDefault(_viewsUser);
 
-// import {LotCollection} from './models/lots';
+var _modelsLots = require('./models/lots');
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -58,7 +72,17 @@ var Router = Backbone.Router.extend({
     'business': 'business',
     'business/company/:company_id/lots': 'displayCompanyLots',
     'business/create': 'createForm',
-    'business/:id/edit': 'editForm'
+    'business/:id/edit': 'editForm',
+    'confirmation': 'confirmation',
+    'attendant/reservations': 'checkReservations'
+
+  },
+
+  initialize: function initialize() {
+    this.reservations = new _modelsAttendantModel.ReservationCollection();
+
+    this.lots = new _modelsLots.LotsCollection();
+    this.lots.fetch();
   },
 
   index: function index() {
@@ -66,34 +90,8 @@ var Router = Backbone.Router.extend({
   },
 
   business: function business() {
-    var lots = new _modelsBusinessModel.LotCollection([{
-      id: 1,
-      company: 'Park Corp',
-      company_id: 1,
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    }, {
-      id: 2,
-      company: 'Park Corp',
-      company_id: 1,
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    }, {
-      id: 3,
-      company: 'Lot Corp',
-      company_id: 2,
-      name: 'Bay Lot',
-      address: '101 South Main',
-      availableSpaces: '24',
-      hours: '8:00am to 6:00pm',
-      price: '7.00'
-    }]);
+    var lots = new _modelsBusinessModel.LotCollection();
+    lots.fetch();
     var view = new _viewsBusinessView2['default']({ collection: lots });
     $('#app').html(view.el);
   },
@@ -138,60 +136,45 @@ var Router = Backbone.Router.extend({
   },
 
   editForm: function editForm(id) {
-    var lots = new _modelsBusinessModel.LotCollection([{
-      id: 1,
-      company: 'Park Corp',
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    }, {
-      id: 2,
-      company: 'Park Corp',
-      name: 'Hackathon',
-      address: '101 North Main',
-      availableSpaces: '12',
-      hours: '8:00am to 6:00pm',
-      price: '5.00'
-    }, {
-      id: 3,
-      company: 'Lot Corp',
-      name: 'Bay Lot',
-      address: '101 South Main',
-      availableSpaces: '24',
-      hours: '8:00am to 6:00pm',
-      price: '7.00'
-    }]);
-    var view = new _viewsEditView2['default']({
-      collection: lots,
-      model: id
+    var lots = new _modelsBusinessModel.LotCollection();
+    lots.fetch().then(function (list) {
+      var view = new _viewsEditView2['default']({
+        collection: list,
+        model: id
+      });
+      $('#app').html(view.el);
     });
-    $('#app').html(view.el);
+  },
+
+  attendant: function attendant() {
+    this.reservations.fetch().then((function () {
+
+      $('#app').html(new _viewsAttendantView2['default']({ collection: this.reservations }).el);
+    }).bind(this));
+  },
+
+  checkReservations: function checkReservations() {
+
+    this.reservations.fetch().then((function () {
+
+      $('#app').html(new _viewsAttendantReservationView2['default']({ collection: this.reservations }).el);
+    }).bind(this));
   },
 
   parking: function parking() {
-    this.lots = new _modelsBusinessModel.LotCollection();
-    //    {'company': 'Best Parking EVAR!',
-    //    'id': 1,
-    //    'title': 'A parking lot',
-    //    'address': '101 North Main Street Greenville, SC',
-    //    'price': 5,
-    //    'totalSpaces': 50,
-    //    'spacesLeft': 45},
-    //    {'company': 'Parking Company, Inc.',
-    //    'id': 2,
-    //    'title': 'Another parking lot',
-    //    'address': '131 North Main Street Greenville, SC',
-    //    'price': 4,
-    //    'totalSpaces': 30,
-    //    'spacesLeft': 15},
-    //    ]
-    // );
+    this.lots = new _modelsLots.LotsCollection();
     this.lots.fetch().then((function (response) {
       this.UserView = new _viewsUser2['default']({ collection: this.lots });
       $('#app').html(this.UserView.el);
     }).bind(this));
+  },
+
+  confirmation: function confirmation() {
+    this.reservations.fetch().then((function (response) {
+      this.ConfirmationView = new _viewsConfirmation2['default']({ collection: this.reservations, data: this.lots });
+      $('#app').html(this.ConfirmationView.el);
+    }).bind(this));
+
     // console.log('hi');
   }
 
@@ -199,6 +182,30 @@ var Router = Backbone.Router.extend({
 
 var router = new Router();
 exports['default'] = router;
+module.exports = exports['default'];
+  
+});
+
+require.register("models/attendantModel", function(exports, require, module){
+  /**
+ * Created by firewaterjoe on 6/26/15.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var Reservation = Backbone.Model.extend({
+
+  urlRoot: 'http://greenville-parking.com/reservations'
+
+});
+
+var ReservationCollection = Backbone.Collection.extend({
+  model: Reservation,
+  url: 'http://greenville-parking.com/reservations'
+});
+exports['default'] = { ReservationCollection: ReservationCollection, Reservation: Reservation };
 module.exports = exports['default'];
   
 });
@@ -211,6 +218,7 @@ Object.defineProperty(exports, '__esModule', {
 });
 var Lot = Backbone.Model.extend({
   idAttribute: '_id',
+  urlRoot: 'http://greenville-parking.com/companies/lots',
   defaults: function defaults() {
     return {
       name: '',
@@ -240,27 +248,192 @@ require.register("models/lots", function(exports, require, module){
   'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-  value: true
+    value: true
 });
 var Lot = Backbone.Model.extend({
-  defaults: function defaults() {
-    return {
-      name: '',
-      address: '',
-      availableSpaces: '',
-      hours: '',
-      price: '',
-      created_at: new Date()
-    };
-  }
+
+    urlRoot: 'http://greenville-parking.com/lots'
+
 });
 
-var LotCollection = Backbone.Collection.extend({
-  model: Lot,
-  url: 'http://greenville-parking.com/companies/1/lots'
+var LotsCollection = Backbone.Collection.extend({
+
+    url: 'http://greenville-parking.com/lots',
+    model: Lot
+
 });
 
-exports['default'] = { Lot: Lot, LotCollection: LotCollection };
+exports['default'] = { Lot: Lot, LotsCollection: LotsCollection };
+module.exports = exports['default'];
+  
+});
+
+require.register("views/AttendantReservationView", function(exports, require, module){
+  /**
+ * Created by firewaterjoe on 6/27/15.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _ReservationSingleView = require('./ReservationSingleView');
+
+var _ReservationSingleView2 = _interopRequireDefault(_ReservationSingleView);
+
+exports['default'] = Backbone.View.extend({
+    template: JST.attendantReservations,
+    events: {},
+
+    initialize: function initialize() {
+        this.render();
+    },
+    render: function render() {
+        this.$el.html(this.template());
+        this.renderChildren();
+    },
+    renderChildren: function renderChildren() {
+        _.invoke(this.children || [], 'remove');
+
+        this.children = this.collection.map((function (child) {
+            var view = new _ReservationSingleView2['default']({
+                collection: this.collection,
+                model: child
+            });
+
+            this.$('.attendant-reservation-list').append(view.el);
+            return view;
+        }).bind(this));
+
+        return this;
+    },
+
+    remove: function remove() {
+        _.invoke(this.children || [], 'remove');
+        Backbone.View.prototype.remove.apply(this, arguments);
+    },
+    checkReservation: function checkReservation() {
+        console.log(this);
+    }
+});
+module.exports = exports['default'];
+
+//'click .attendant-list-item': 'checkReservation'
+  
+});
+
+require.register("views/ReservationSingleView", function(exports, require, module){
+  /**
+ * Created by firewaterjoe on 6/27/15.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+exports['default'] = Backbone.View.extend({
+    template: JST.attendantReservationSingle,
+    tagName: 'li',
+    className: 'attendant-list-item',
+    events: {
+        'click': 'dude'
+    },
+
+    initialize: function initialize() {
+
+        this.render();
+    },
+    render: function render() {
+        this.$el.html(this.template(this.model.toJSON()));
+    },
+    dude: function dude() {
+        this.id = this.model.toJSON().id;
+        console.log(this.id);
+        console.log(this.collection);
+
+        this.aModel = _.filter(this.collection.models, (function (param) {
+            //console.log(param);
+            if (param.id === this.id) {
+                return param;
+            };
+        }).bind(this));
+
+        //console.log(model);
+        //this.collection.
+
+        //console.log('collection',this.collection);
+        //console.log('model', this.model);
+        //var id = this.model.attributes.id;
+        //this.collection.destroy(this.aModel.id);
+    }
+
+});
+module.exports = exports['default'];
+  
+});
+
+require.register("views/attendantView", function(exports, require, module){
+  /**
+ * Created by firewaterjoe on 6/26/15.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+var AttendantView = Backbone.View.extend({
+    template: JST.attendant,
+    className: 'attendant-container',
+    events: {
+        'click .attendant-car-in': 'carIn',
+        'click .attendant-car-out': 'carOut'
+    },
+    initialize: function initialize() {
+        this.carMax = 55;
+
+        this.cars = 30;
+        this.reserved = this.collection.length;
+        this.available = this.calculateAvailable();
+
+        this.render();
+    },
+
+    render: function render() {
+        this.$el.html(JST['attendant']({
+            'cars': this.available,
+            'reserved': this.reserved
+        }));
+    },
+    carIn: function carIn() {
+        this.available = $('.attendant-spots-left').text();
+        this.cars -= 1;
+        this.available = this.calculateAvailable();
+        if (this.available >= 0) {
+            this.render();
+        } else {
+            this.cars += 1;
+            this.available = this.calculateAvailable();
+        }
+    },
+    carOut: function carOut() {
+        this.available = $('.attendant-spots-left').text();
+        this.cars += 1;
+        this.available = this.calculateAvailable();
+        if (this.available <= this.carMax) {
+            this.render(this.available);
+        } else {
+            this.cars -= 1;
+            this.available = this.calculateAvailable();
+        }
+    },
+    calculateAvailable: function calculateAvailable() {
+        return this.cars - this.reserved;
+    }
+});
+exports['default'] = AttendantView;
 module.exports = exports['default'];
   
 });
@@ -290,6 +463,7 @@ exports['default'] = Backbone.View.extend({
   },
 
   initialize: function initialize() {
+    console.log(this.collection);
     this.render();
   },
 
@@ -327,6 +501,57 @@ exports["default"] = Backbone.View.extend({
   }
 });
 module.exports = exports["default"];
+  
+});
+
+require.register("views/confirmation", function(exports, require, module){
+  'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+exports['default'] = Backbone.View.extend({
+
+	template: JST['confirmation'],
+	tagName: 'div',
+	className: 'confirmation-container',
+
+	events: {
+		'click ': 'reserveSpace'
+	},
+
+	initialize: function initialize(options) {
+		this.render();
+		this.data = options.data;
+		console.log(this);
+		// this.listenTo(this.collection, 'add', this.confirm);
+	},
+
+	render: function render() {
+		this.$el.html(this.template(this.collection.toJSON()));
+	},
+
+	reserveSpace: function reserveSpace() {
+		var id = localStorage.getItem('id');
+		_.filter(this.data.models, function (item) {
+			if (item.attributes.id == id) {
+				var remaining = item.attributes.availableSpaces;
+				remaining--;
+				item.set('availableSpaces', remaining);
+				item.save();
+				console.log(item);
+			}
+		});
+		this.collection.create({}, {
+			error: function error(model, response) {},
+			success: function success(model, response) {
+				$('.blur').html(response.reservation_key);
+			}
+		});
+	}
+
+});
+module.exports = exports['default'];
   
 });
 
@@ -403,8 +628,17 @@ exports['default'] = Backbone.View.extend({
   },
 
   initialize: function initialize() {
-    var modelId = Number(this.model) - 1;
-    this.model = this.collection.models[modelId];
+    console.log(this.collection);
+    var modelId = this.model;
+    var collection = this.collection;
+    var list = _.filter(collection, function (object) {
+      if (object._id === modelId) {
+        return object;
+      }
+    });
+    this.model = list;
+    // var modelId = Number(this.model) - 1;
+    // this.model = this.collection.models[modelId];
     this.render();
   },
 
@@ -419,7 +653,7 @@ exports['default'] = Backbone.View.extend({
     var lotSpaces = this.$('.lot-spaces-edit').val();
     var lotHours = this.$('.lot-hours-edit').val();
     var lotPrice = this.$('.lot-price-edit').val();
-    this.model.set({
+    this.collection.create({
       name: lotName,
       address: lotAddress,
       availableSpaces: lotSpaces,
@@ -434,7 +668,7 @@ exports['default'] = Backbone.View.extend({
     e.preventDefault();
     var answer = confirm('Are you sure you want to delete this lot? This is irreversible');
     if (answer) {
-      this.model.destroy();
+      this.collection.destroy(this.model);
       _router2['default'].navigate('business', { trigger: true });
     }
   }
@@ -456,7 +690,7 @@ exports['default'] = Backbone.View.extend({
 	className: 'user-view',
 
 	events: {
-		'submit': 'reserveSpace',
+		'click .lot-reservation-form-submit': 'setId',
 		'click .fa-close': 'hideForm'
 	},
 
@@ -464,6 +698,7 @@ exports['default'] = Backbone.View.extend({
 		var self = this;
 		var coords = [];
 		var counter = 0;
+		this.listenTo(this.collection, 'update add remove change', this.refresh);
 		_.map(this.collection.models, function (lot) {
 			var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + lot.get('address') + '&key=AIzaSyAxLmBk-m1DqRj2OhzXzsVr6ECwRZty0X4';
 			$.ajax({
@@ -473,15 +708,14 @@ exports['default'] = Backbone.View.extend({
 				self.render();
 				var address = self.collection.models[counter].attributes.address;
 				var price = self.collection.models[counter].attributes.price;
-				var title = self.collection.models[counter].attributes.title;
-				var id = self.collection.models[counter].attributes._id;
-				var remaining = self.collection.models[counter].attributes.spacesLeft;
+				var name = self.collection.models[counter].attributes.name;
+				var id = self.collection.models[counter].attributes.id;
+				var remaining = self.collection.models[counter].attributes.availableSpaces;
 				var totalSpaces = self.collection.models[counter].attributes.totalSpaces;
 				counter++;
 				var lat = response.results[0].geometry.location.lat;
 				var lng = response.results[0].geometry.location.lng;
-				console.log(lat, lng);
-				coords.push({ 'lng': lng, 'lat': lat, 'address': address, 'price': price, 'title': title, 'id': id, 'remaining': remaining, 'totalSpaces': totalSpaces });
+				coords.push({ 'lng': lng, 'lat': lat, 'address': address, 'price': price, 'name': name, 'id': id, 'remaining': remaining, 'totalSpaces': totalSpaces });
 				var map = new GMaps({
 					div: '#map-canvas',
 					lat: 34.852618,
@@ -494,7 +728,7 @@ exports['default'] = Backbone.View.extend({
 						title: 'Parking-Lot',
 						click: function click(e) {
 							$('.lot-specifics').fadeToggle();
-							$('.lot-title').html(item.title);
+							$('.lot-title').html(item.name);
 							$('.lot-address').html(item.address);
 							$('.lot-price').html('$ ' + item.price);
 							$('.lot-specifics').attr('id', item.id);
@@ -510,22 +744,19 @@ exports['default'] = Backbone.View.extend({
 		this.$el.html(this.template(this.collection.toJSON()));
 	},
 
-	reserveSpace: function reserveSpace(e) {
-		e.preventDefault();
-		var id = $('.lot-specifics').attr('id');
-		_.filter(this.collection.models, function (item) {
-			if (item.attributes._id == id) {
-				var remaining = item.attributes.spacesLeft;
-				remaining--;
-				item.set('spacesLeft', remaining);
-				item.save();
-				console.log(item);
-			}
-		});
-	},
-
 	hideForm: function hideForm() {
 		$('.lot-specifics').fadeToggle();
+	},
+
+	refresh: function refresh() {
+		this.collection.fetch().then((function () {
+			this.initialize();
+		}).bind(this));
+	},
+
+	setId: function setId() {
+		var id = $('.lot-specifics').attr('id');
+		localStorage.setItem('id', id);
 	}
 
 });
