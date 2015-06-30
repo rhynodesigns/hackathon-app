@@ -6,7 +6,7 @@
 <h>Hack-a-thon Prototype</h>
 
 <p>Thanks for @imagineupstate for hosting an awesome Hack-a-thon.</p>
-<p>This site represents the efforst of Austin, Jason, Aaron, Harrison, Matt, and Ryan to create a functional protype of a mobile-friendly web app to allow people looking for parking downtown to find private lots and chose based on location/price and reserve a space at a desired lot.</p>
+<p>This site represents the efforts of <a href="https://github.com/austineady">Austin Eady</a>, <a href="https://github.com/JasonOhr">Jason Ohr</a>, <a href="https://github.com/aaronverhoeven">Aaron Verhoeven</a>, <a href="https://github.com/hstall2529">Harrison Stall</a>, <a href="https://github.com/mchaperc">Matt Chastain</a>, and <a href="https://github.com/rhynodesigns">Ryan McAllen</a> to create a functional protype of a mobile-friendly web app to allow people looking for parking in downtown Greenville to find private lots, choosing based on location/price, and to reserve a space at a desired lot.</p>
 
 <hr>
 <br />
